@@ -10,7 +10,7 @@ class DataModel {
         this.vehicles = [
             {
                 name: "RHINO (Transport de Troupes)",
-                image: "https://www.warhammer-community.com/wp-content/uploads/2022/04/kX0V69qG3fA3s3A8.jpg",
+                image: "img/rhino.png",
                 specs: [
                     "Classe: Transport Léger",
                     "Blindage: Céramite Standard (Blindage 11)",
@@ -22,7 +22,7 @@ class DataModel {
             },
             {
                 name: "PREDATOR (Appui-Feu)",
-                image: "https://www.warhammer-community.com/wp-content/uploads/2023/05/Pj6kO11Z7bT2C4m5.jpg",
+                image: "img/predator.png",
                 specs: [
                     "Classe: Char de Combat Principal",
                     "Blindage: Renforcé (Blindage 13)",
@@ -34,7 +34,7 @@ class DataModel {
             },
             {
                 name: "LAND RAIDER (Assaut Lourd)",
-                image: "https://www.warhammer-community.com/wp-content/uploads/2023/10/7bQO5O1O4L1j9v5l.jpg",
+                image: "img/land_raider.png",
                 specs: [
                     "Classe: Char d'Assaut / Transport Lourd",
                     "Blindage: Adamantium épaisseur max (Blindage 14)",
