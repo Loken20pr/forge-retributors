@@ -43,38 +43,58 @@ class DataModel {
                     "Point de Rép.: Élevé - Relique du chapitre",
                     "Rôle tactique: Percée de lignes, transport de vétérans."
                 ]
+            },
+            { 
+                name: "LAND SPEEDER",
+                image: "img/land_speeder.png",
+                specs: [
+                    "Classe: Véhicule Léger de Reconnaissance",
+                    "Blindage: Léger (Blindage 9)",
+                    "Armement: Bolter de reconnaissance, Missiles à fragmentation",
+                    "Capacité: 2 Astartes",
+                    "Point de Rép.: Faible - Maintenance rapide",
+                    "Rôle tactique: Reconnaissance, harcèlement rapide."
+                ]
+            },
+            {
+                name: "MOTO DE COMBAT",
+                image: "img/bike.png",
+                specs: [
+                    "Classe: Véhicule Léger de Combat",
+                    "Blindage: Léger (Blindage 8)",
+                    "Armement: Bolter d'assaut",
+                    "Capacité: 1 Astartes",
+                    "Point de Rép.: Faible - Maintenance requise: Huiles sacrées",
+                    "Rôle tactique: Rapide, souplesse en combat."
+                ]
+            },
+            {
+                name: "THUNDERHAWK",
+                image: "img/thunderhawk.png",
+                specs: [
+                    "Classe: Transport Aérien / Gunship",
+                    "Blindage: Renforcé (Blindage 12)",
+                    "Armement: Canons lasers, Missiles à fragmentation",
+                    "Capacité: 30 Astartes",
+                    "Point de Rép.: Moyen - Rites d'allumage complexes",
+                    "Rôle tactique: Appui aérien, transport de troupes."
+                ]
+
             }
         ];
 
-        // --- GESTION RELIQUES ---
-        this.currentRelicIndex = 0;
+        // --- GESTION RELIQUES / LOGISTIQUE ---
         this.isRelicsAuthenticated = false; 
-        
         this.authorizedUsers = {
             "admin": "omnissie2024",
             "magos": "retributors7"
         };
 
-        this.relics = [
-            {
-                name: "HACHE D'OMNISSIE 'BRÈCHE-CODE'",
-                image: "https://www.warhammer-community.com/wp-content/uploads/2019/09/99120108044_TechmarineAxe.jpg", 
-                specs: [
-                    "Type: Arme de Force Energétique",
-                    "Origine: Monde-Forge Mars",
-                    "Propriétés: Perforation d'armure lourde, Interface neurale directe.",
-                    "Statut: Bénie par l'Archimagos."
-                ]
-            },
-            {
-                name: "CRÂNE SERVO-MÉDICAL RELIQUE",
-                image: "https://www.warhammer-community.com/wp-content/uploads/2022/10/ServoSkull.jpg", 
-                specs: [
-                    "Type: Assistant de terrain auto-propulsé",
-                    "Fonction: Réanimation d'urgence, Analyse bio-chimique.",
-                    "Note: Contient les restes du Frère-Sergent Vorus."
-                ]
-            }
+        // Tes liens vers les Excel de la logistique
+        this.logisticsLinks = [
+            { name: "TABLEAU DE BORD LOGISTIQUE", url: "LIEN_VERS_EXCEL_1", desc: "Gestion globale des ressources et stocks." },
+            { name: "REGISTRE DES EFFECTIFS", url: "LIEN_VERS_EXCEL_2", desc: "Assignations et suivi des frères de bataille." },
+            { name: "PLANIFICATION DE LA FORGE", url: "LIEN_VERS_EXCEL_3", desc: "Projets de construction et réparations prioritaires." }
         ];
 
         // --- GESTION ARMES ---
@@ -113,13 +133,11 @@ class DataModel {
 
     next(type) {
         if (type === 'vehicles') this.currentVehicleIndex = (this.currentVehicleIndex + 1) % this.vehicles.length;
-        if (type === 'relics') this.currentRelicIndex = (this.currentRelicIndex + 1) % this.relics.length;
         if (type === 'weapons') this.currentWeaponIndex = (this.currentWeaponIndex + 1) % this.weapons.length;
     }
 
     prev(type) {
         if (type === 'vehicles') this.currentVehicleIndex = (this.currentVehicleIndex - 1 + this.vehicles.length) % this.vehicles.length;
-        if (type === 'relics') this.currentRelicIndex = (this.currentRelicIndex - 1 + this.relics.length) % this.relics.length;
         if (type === 'weapons') this.currentWeaponIndex = (this.currentWeaponIndex - 1 + this.weapons.length) % this.weapons.length;
     }
 }
@@ -141,12 +159,21 @@ class AppView {
                     <br>
                     <p>Ce terminal vous donne accès aux systèmes de l'armurerie et du garage du Chapitre des <strong>RETRIBUTORS</strong>. N'oubliez jamais : la chair est faible, mais la machine est éternelle.</p>
                     <br>
+                    <p>
+                        Les Techmarines sont une spécialité de l’Adeptus Astartes, ils sont liés au Culte du Dieux Machine, ils sont également les gardiens des secrets technologiques et mécaniques de leur Chapitre. <br> 
+                        L'importance d’un Techmarines est vitale au sein d’un Chapitre car il sont les seuls à pouvoir opérer efficacement sur les machines de leur Chapitre qu’elles soient des armes, des fabricators ou bien des véhicules. Leur rôle passe aussi par l'entretien et la maintenance de tous les appareils, présent sur les différentes bases d'opérations et sur le matériel de leurs Frères. <br>
+                        Être un Techmarines n’est pas seulement une spécialisation mais une volonté, un lourd devoirs qui se doit d'être transmis pendant une formation de 30 année standarts sur Mars, années pendant lesquelles vous serez formé sur tous les aspects de la mécanique et la technicité de l'arsenal de l’Adeptus Astartes et étrangères, après cette période de formation vous serez pleinement opérationnel pour opérer au seins de votre Chapitre. <br>
+                        Votre rôle est aussi de connaître l'équipement utilisé au sein de votre Chapitre pour pouvoir les déployées avec un maximum d’efficacité, notamment en conseillant les Officiers. Il est également possible d'être rattaché aux escouade de commandements lors de mission pour pouvoir partager vos connaissance stratégique et votre savoir de la machine afin d’assister au mieux votre Chapitre et vos Frères durants les missions 
+
+                    </p>
+                    
+                    <br>
                     <p>> [STATUT DU CHAPITRE] : DÉPLOIEMENT EN COURS.</p>
                     <p>> [RÉQUISITIONS] : EN LIGNE.</p>
                 `;
                 break;
 
-            case 'forge':
+            case 'equipments':
                 this.appRoot.innerHTML = `
                     <h2>> BASE DE DONNÉES : LES FORGES DES RETRIBUTORS</h2>
                     <p>Nos forges brûlent de la fureur de Dorn. En tant que Techmarines, notre devoir est double : honorer le Culte Mechanicus et maintenir l'arsenal des Retributors à son potentiel destructeur maximal.</p>
@@ -155,24 +182,17 @@ class AppView {
                 `;
                 break;
 
-            case 'roles':
+            case 'protocols':
                 this.appRoot.innerHTML = `
-                    <h2>> HIÉRARCHIE & RÔLES : SYSTÈME DE RÉQUISITION</h2>
-                    <p>La survie de nos frères dépend de notre gestion des points de Réquisition (PR). Tout se craft, tout se mérite.</p>
+                    <h2>> PROTOCOLES DE LA FORGE</h2>
+                    <p>Les protocoles de la forge sont les règles sacrées qui régissent l'entretien et la réparation de nos machines. Chaque Techmarine doit les connaître par cœur, car une erreur peut coûter la vie à un Frère de Bataille.</p>
+                    <strong>A CONTINUER</strong>
                     <br>
-                    <h3>> INITIÉ DE LA FORGE</h3>
-                    <p>• <strong>Rôle :</strong> Gestion de base. Collecte de données et réparations mineures.</p>
-                    <p>• <strong>Crafting :</strong> Munitions standard, chargeurs, grenades (Coût PR très faible).</p>
-                    <br>
-                    <h3>> TECHMARINE OPÉRATIONNEL</h3>
-                    <p>• <strong>Rôle :</strong> Déployé sur le terrain. L'ange gardien de l'équipement.</p>
-                    <p>• <strong>Objectifs de Mission :</strong> Réparation d'armures énergétiques sur le terrain, déploiement de tourelles Tarentula, appui-feu, extraction et maintenance de véhicules endommagés.</p>
-                    <p>• <strong>Crafting :</strong> Armes spéciales (Plasmas, Fuseurs), modules tactiques, véhicules légers (Coût PR modéré).</p>
-                    <br>
-                    <h3>> MAÎTRE DE LA FORGE</h3>
-                    <p>• <strong>Rôle :</strong> Gardien des Reliques et superviseur total de l'Armurerie.</p>
-                    <p>• <strong>Gestion :</strong> Administration globale de la jauge de Réquisition du chapitre.</p>
-                    <p>• <strong>Crafting :</strong> Accès aux schémas de construction complets. Armes lourdes, modules d'armure Terminator, Land Raiders et Dreadnoughts (Coût PR critique).</p>
+
+                    <h2>> PROTOCOLES DE PRIORETISATION</h2>
+                    <p>En cas d'incidents, les protocoles de priorisation dictent l'ordre dans lequel les réparations et les maintenances doivent être effectuées.<br>
+                    En ce qui concernerne les pénuries de stocks, les véhicules de transport sont prioritaires pour assurer la mobilité du Chapitre, suivis des armes lourdes pour maintenir notre puissance de feu.</p>
+                    <strong>A CONTINUER</strong>
                 `;
                 break;
 
@@ -188,7 +208,7 @@ class AppView {
                 if (!model.isRelicsAuthenticated) {
                     this.renderLogin();
                 } else {
-                    this.renderCarousel(model, 'relics');
+                    this.renderLogisticsLinks(model);
                 }
                 break;
         }
@@ -196,7 +216,7 @@ class AppView {
 
     renderLogin(error = false) {
         this.appRoot.innerHTML = `
-            <h2>> ACCÈS RESTREINT : NIVEAU DE SÉCURITÉ MAGOS</h2>
+            <h2>> ACCÈS RESTREINT</h2>
             <div class="login-container">
                 <div class="login-form">
                     <label>IDENTIFIANT UNITÉ :</label>
@@ -210,14 +230,22 @@ class AppView {
         `;
     }
 
+    renderLogisticsLinks(model) {
+        this.appRoot.innerHTML = `
+            <h2>> ARCHIVES SÉCURISÉES : UNITÉ DE GESTION LOGISTIQUE</h2>
+            <p>Accès autorisé. Synchronisation avec la Noosphère en cours...</p>
+            <br>
+            <p><a href="https://docs.google.com/spreadsheets/d/13MvK0uYztIRx2zcp7WtICPwF0XFAAco7By6yWzaIIKU/edit?usp=sharing" target="_blank">ACCÉDER AUX ARCHIVES LOGISTIQUES</a></p>
+            <br>
+            <button onclick="location.reload()" style="background: transparent; color: red; border: 1px solid red; cursor: pointer; padding: 5px;">VERROUILLER LA SESSION</button>
+        `;
+    }
+
     renderCarousel(model, type) {
         let item, title;
         if (type === 'vehicles') {
             item = model.vehicles[model.currentVehicleIndex];
             title = "DÉPÔT MOTORISÉ : INSPECTION DES ESPRITS DE LA MACHINE";
-        } else if (type === 'relics') {
-            item = model.relics[model.currentRelicIndex];
-            title = "ARCHIVES SÉCURISÉES : RELIQUES SACRÉES DU CHAPITRE";
         } else if (type === 'weapons') {
             item = model.weapons[model.currentWeaponIndex];
             title = "ARMURERIE : ARSENAL DE L'ASTARTES";
@@ -238,9 +266,7 @@ class AppView {
                     </div>
                     <div class="vehicle-specs">
                         <p>> _SPÉCIFICATIONS TECHNIQUES_</p><br>
-                        <ul>
-                            ${specsHTML}
-                        </ul>
+                        <ul>${specsHTML}</ul>
                     </div>
                 </div>
             </div>
@@ -253,20 +279,18 @@ class AppView {
 }
 
 // ==========================================
-// CONTRÔLEUR (Logique & Événements)
+// CONTRÔLEUR
 // ==========================================
 class AppController {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-
         this.updateView('home');
 
         document.querySelectorAll('nav button').forEach(button => {
             button.addEventListener('click', (e) => {
                 const targetView = e.target.getAttribute('data-target');
                 this.updateView(targetView);
-                
                 document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
                 e.target.classList.add('active');
             });
@@ -280,25 +304,26 @@ class AppController {
     }
 
     attachEvents() {
-        if (this.model.currentView === 'vehicles' || 
-            this.model.currentView === 'weapons' || 
-           (this.model.currentView === 'relics' && this.model.isRelicsAuthenticated)) {
-            
+        if (this.model.currentView === 'vehicles' || this.model.currentView === 'weapons') {
             const type = this.model.currentView;
-            document.getElementById('btn-prev').addEventListener('click', () => { 
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            
+            if (btnPrev) btnPrev.onclick = () => { 
                 this.model.prev(type); 
                 this.view.renderCarousel(this.model, type); 
                 this.attachEvents(); 
-            });
-            document.getElementById('btn-next').addEventListener('click', () => { 
+            };
+            if (btnNext) btnNext.onclick = () => { 
                 this.model.next(type); 
                 this.view.renderCarousel(this.model, type); 
                 this.attachEvents(); 
-            });
+            };
         }
 
         if (this.model.currentView === 'relics' && !this.model.isRelicsAuthenticated) {
-            document.getElementById('btn-login-submit').addEventListener('click', () => {
+            const btnLogin = document.getElementById('btn-login-submit');
+            if (btnLogin) btnLogin.onclick = () => {
                 const u = document.getElementById('login-user').value;
                 const p = document.getElementById('login-pass').value;
                 if (this.model.checkCredentials(u, p)) {
@@ -307,20 +332,15 @@ class AppController {
                     this.view.renderLogin(true);
                     this.attachEvents();
                 }
-            });
+            };
         }
     }
 }
 
-// ==========================================
-// DÉMARRAGE
-// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const model = new DataModel();
     const view = new AppView();
-    const controller = new AppController(model, view);
-    
-    // Activer visuellement le bouton d'accueil au démarrage
+    new AppController(model, view);
     const homeBtn = document.querySelector('nav button[data-target="home"]');
     if(homeBtn) homeBtn.classList.add('active');
 });
