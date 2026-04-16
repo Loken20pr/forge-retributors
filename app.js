@@ -1,15 +1,15 @@
 // ==========================================
-// 1. MODÈLE (Données)
+// MODÈLE (Données)
 // ==========================================
 class DataModel {
     constructor() {
         this.currentView = 'home';
         
-        // --- 1. GESTION VÉHICULES (Ancienne BDD restaurée) ---
+        // --- GESTION VÉHICULES ---
         this.currentVehicleIndex = 0;
         this.vehicles = [
             {
-                name: "RHINO (Transport de Troupes)",
+                name: "RHINO",
                 image: "img/rhino.png",
                 specs: [
                     "Classe: Transport Léger",
@@ -21,7 +21,7 @@ class DataModel {
                 ]
             },
             {
-                name: "PREDATOR (Appui-Feu)",
+                name: "PREDATOR",
                 image: "img/predator.png",
                 specs: [
                     "Classe: Char de Combat Principal",
@@ -33,7 +33,7 @@ class DataModel {
                 ]
             },
             {
-                name: "LAND RAIDER (Assaut Lourd)",
+                name: "LAND RAIDER",
                 image: "img/land_raider.png",
                 specs: [
                     "Classe: Char d'Assaut / Transport Lourd",
@@ -46,7 +46,7 @@ class DataModel {
             }
         ];
 
-        // --- 2. GESTION RELIQUES ---
+        // --- GESTION RELIQUES ---
         this.currentRelicIndex = 0;
         this.isRelicsAuthenticated = false; 
         
@@ -77,12 +77,12 @@ class DataModel {
             }
         ];
 
-        // --- 3. GESTION ARMES (Page 6) ---
+        // --- GESTION ARMES ---
         this.currentWeaponIndex = 0;
         this.weapons = [
             {
-                name: "BOLTER LOURD (Motif Astartes)",
-                image: "https://www.warhammer-community.com/wp-content/uploads/2020/05/6H2l8s9J3k1M4n5P.jpg", 
+                name: "BOLTER",
+                image: "img/bolter.png", 
                 specs: [
                     "Type: Arme Lourde d'Appui",
                     "Munition: Calibre .998 Explosif Rétro-propulsé",
@@ -91,8 +91,8 @@ class DataModel {
                 ]
             },
             {
-                name: "FUSIL À PLASMA (Motif Ryza)",
-                image: "https://www.warhammer-community.com/wp-content/uploads/2020/05/7H2l8s9J3k1M4n5Q.jpg", 
+                name: "FUSIL À PLASMA",
+                image: "img/plasma.png", 
                 specs: [
                     "Type: Arme Spéciale",
                     "Énergie: Hydrogène photoplasmique",
@@ -125,7 +125,7 @@ class DataModel {
 }
 
 // ==========================================
-// 2. VUE (Affichage)
+// VUE (Affichage)
 // ==========================================
 class AppView {
     constructor() { this.appRoot = document.getElementById('app-root'); }
@@ -134,7 +134,6 @@ class AppView {
         this.appRoot.innerHTML = ''; 
 
         switch (viewName) {
-            // Anciens contenus restaurés EXACTEMENT
             case 'home':
                 this.appRoot.innerHTML = `
                     <h2>> INITIALISATION...</h2>
@@ -226,7 +225,6 @@ class AppView {
         
         let specsHTML = item.specs.map(spec => `<li>${spec}</li>`).join('');
 
-        // Ancien ID aléatoire restauré
         this.appRoot.innerHTML = `
             <h2>> ${title}</h2>
             <div class="carousel-container">
@@ -255,7 +253,7 @@ class AppView {
 }
 
 // ==========================================
-// 3. CONTRÔLEUR (Logique & Événements)
+// CONTRÔLEUR (Logique & Événements)
 // ==========================================
 class AppController {
     constructor(model, view) {
@@ -315,7 +313,7 @@ class AppController {
 }
 
 // ==========================================
-// DÉMARRAGE DE L'APPLICATION
+// DÉMARRAGE
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const model = new DataModel();
