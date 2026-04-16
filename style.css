@@ -1,0 +1,191 @@
+:root {
+    --term-color: #33ff00; /* Vert phosphore classique */
+    --term-bg: #051405; /* Noir/Vert très sombre */
+    --glow: 0 0 10px rgba(51, 255, 0, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--term-bg);
+    color: var(--term-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+    text-shadow: var(--glow);
+}
+
+/* Effet écran cathodique (CRT) */
+.crt::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.terminal {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.separator {
+    color: var(--term-color);
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+button {
+    background: none;
+    border: 1px solid var(--term-color);
+    color: var(--term-color);
+    font-family: inherit;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: var(--glow);
+    transition: all 0.2s;
+}
+
+button:hover, button.active {
+    background: var(--term-color);
+    color: var(--term-bg);
+}
+
+main {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--term-bg); }
+::-webkit-scrollbar-thumb { background: var(--term-color); }
+
+/* --- Styles du Carrousel des Véhicules --- */
+.carousel-container {
+    display: flex;
+    border: 1px solid var(--term-color);
+    height: 400px;
+    padding: 10px;
+    gap: 20px;
+}
+
+.carousel-left {
+    flex: 1.5;
+    border: 1px dashed var(--term-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-left img {
+    max-width: 100%;
+    max-height: 100%;
+    filter: grayscale(100%) sepia(100%) hue-rotate(80deg) brightness(1.2); /* Donne un look vert au véhicule */
+}
+
+.carousel-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-header {
+    flex: 0.3;
+    border-bottom: 1px solid var(--term-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vehicle-specs {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.vehicle-specs ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.carousel-controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* --- Styles pour le Login (Page Reliques) --- */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid var(--term-color);
+    padding: 20px;
+    background: rgba(51, 255, 0, 0.05);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form label {
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.login-form input {
+    background: transparent;
+    border: 1px solid var(--term-color);
+    color: var(--term-color);
+    padding: 8px;
+    font-family: inherit;
+    outline: none;
+}
+
+.login-form input:focus {
+    background: rgba(51, 255, 0, 0.1);
+    box-shadow: var(--glow);
+}
+
+.error-msg {
+    color: #ff0000;
+    font-size: 0.9em;
+    margin-top: 10px;
+    text-align: center;
+}
