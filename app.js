@@ -83,19 +83,11 @@ class DataModel {
             }
         ];
 
-        // --- GESTION RELIQUES / LOGISTIQUE ---
-        this.isRelicsAuthenticated = false; 
+        this.isLogiAuthenticated = false; 
         this.authorizedUsers = {
-            "admin": "omnissie2024",
+            "leandres": "accessgranted",
             "magos": "retributors7"
         };
-
-        // Tes liens vers les Excel de la logistique
-        this.logisticsLinks = [
-            { name: "TABLEAU DE BORD LOGISTIQUE", url: "LIEN_VERS_EXCEL_1", desc: "Gestion globale des ressources et stocks." },
-            { name: "REGISTRE DES EFFECTIFS", url: "LIEN_VERS_EXCEL_2", desc: "Assignations et suivi des frères de bataille." },
-            { name: "PLANIFICATION DE LA FORGE", url: "LIEN_VERS_EXCEL_3", desc: "Projets de construction et réparations prioritaires." }
-        ];
 
         // --- GESTION ARMES ---
         this.currentWeaponIndex = 0;
@@ -121,11 +113,37 @@ class DataModel {
                 ]
             }
         ];
+
+        // --- GESTION DU MATERIEL ---
+        this.currentGearIndex = 0;
+        this.gear = [
+            {
+                name: "REPARATUM",
+                image: "img/reparatum.png", 
+                specs: [
+                    "Type: Système de Réparation Portatif",
+                    "Fonction: Détachement de pièces, soudure d'appoint, diagnostic rapide.",
+                    "Rôle: Maintenance d'armure et de véhicules sur le champ de bataille, construction de fortifications."
+                ]
+            },
+            {
+                name: "TOURELLE DE DÉFENSE",
+                image: "img/turret.png", 
+                specs: [
+                    "Type: Système de Défense Stationnaire",
+                    "Armement: Fusils laser, Canons Plasma",
+                    "Rôle: Défense de périmètre, suppression d'infanterie.",
+                    "Modules : "
+                ]
+            }
+        ];
     }
+
+
 
     checkCredentials(user, pass) {
         if (this.authorizedUsers[user] && this.authorizedUsers[user] === pass) {
-            this.isRelicsAuthenticated = true;
+            this.isLogiAuthenticated = true;
             return true;
         }
         return false;
@@ -134,11 +152,14 @@ class DataModel {
     next(type) {
         if (type === 'vehicles') this.currentVehicleIndex = (this.currentVehicleIndex + 1) % this.vehicles.length;
         if (type === 'weapons') this.currentWeaponIndex = (this.currentWeaponIndex + 1) % this.weapons.length;
+        if (type === 'gear') this.currentWeaponIndex = (this.currentWeaponIndex + 1) % this.gear.length;
     }
 
     prev(type) {
         if (type === 'vehicles') this.currentVehicleIndex = (this.currentVehicleIndex - 1 + this.vehicles.length) % this.vehicles.length;
         if (type === 'weapons') this.currentWeaponIndex = (this.currentWeaponIndex - 1 + this.weapons.length) % this.weapons.length;
+        if (type === 'gear') this.currentWeaponIndex = (this.currentWeaponIndex - 1 + this.gear.length) % this.gear.length;
+
     }
 }
 
@@ -155,6 +176,23 @@ class AppView {
             case 'home':
                 this.appRoot.innerHTML = `
                     <h2>> INITIALISATION...</h2>
+                    <p>> [STATUT DU CHAPITRE] : DÉPLOIEMENT EN COURS.</p>
+                    <p>> [RÉQUISITIONS] : EN LIGNE.</p>
+                    <p>> [SYSTÈME DE MAINTENANCE] : OPÉRATIONNEL.</p>
+
+                    <br>
+                    <p>> [LITANIES] : PRÊTES...</p>
+                    <p class="center"> 
+                    '''
+                    AVE DEUS MECHANICUS, NOSTRI DOMINUS ET DEUS. <br>
+                    AVE MARS, PATER OMNISCIENTIAE. <br>
+                    AVE OMNIMESSIE, LUMEN DEI. <br>
+                    AVE FORTITUDO, PILARUM IMPERII. <br> 
+                    AVE GLORIA, VICTORIA AETERNA. <br>
+                    AVE RETRIBUTORS, FIDELIS SERVI.
+                    '''
+                    </p>
+                    <br>
                     <p>Authentification confirmée. Bienvenue, Techmarine.</p>
                     <br>
                     <p>Ce terminal vous donne accès aux systèmes de l'armurerie et du garage du Chapitre des <strong>RETRIBUTORS</strong>. N'oubliez jamais : la chair est faible, mais la machine est éternelle.</p>
@@ -167,32 +205,119 @@ class AppView {
 
                     </p>
                     
-                    <br>
-                    <p>> [STATUT DU CHAPITRE] : DÉPLOIEMENT EN COURS.</p>
-                    <p>> [RÉQUISITIONS] : EN LIGNE.</p>
-                `;
-                break;
-
-            case 'equipments':
-                this.appRoot.innerHTML = `
-                    <h2>> BASE DE DONNÉES : LES FORGES DES RETRIBUTORS</h2>
-                    <p>Nos forges brûlent de la fureur de Dorn. En tant que Techmarines, notre devoir est double : honorer le Culte Mechanicus et maintenir l'arsenal des Retributors à son potentiel destructeur maximal.</p>
-                    <br>
-                    <p>Les rituels d'éveil de la machine doivent être respectés avant chaque déploiement. Veillez à ce que les encensoirs soient pleins et que les onguents bénis soient appliqués sur les culasses des bolters.</p>
                 `;
                 break;
 
             case 'protocols':
                 this.appRoot.innerHTML = `
-                    <h2>> PROTOCOLES DE LA FORGE</h2>
-                    <p>Les protocoles de la forge sont les règles sacrées qui régissent l'entretien et la réparation de nos machines. Chaque Techmarine doit les connaître par cœur, car une erreur peut coûter la vie à un Frère de Bataille.</p>
-                    <strong>A CONTINUER</strong>
-                    <br>
-
                     <h2>> PROTOCOLES DE PRIORETISATION</h2>
                     <p>En cas d'incidents, les protocoles de priorisation dictent l'ordre dans lequel les réparations et les maintenances doivent être effectuées.<br>
-                    En ce qui concernerne les pénuries de stocks, les véhicules de transport sont prioritaires pour assurer la mobilité du Chapitre, suivis des armes lourdes pour maintenir notre puissance de feu.</p>
-                    <strong>A CONTINUER</strong>
+                    En ce qui concernerne les pénuries de stocks, le Maître des Forges viendra définir lui-même la priorité de chaque matériel nécessaire au bon fonctionnement du Chapitre.</p>
+                    <ul>
+                        <li><strong>Code Rouge</strong> : Priorité absolue, nécessite une intervention immédiate.</li>
+                        <li><strong>Code Orange</strong> : Priorité élevée, intervention requise dans les 24 heures.</li>
+                        <li><strong>Code Jaune</strong> : Priorité modérée, intervention requise dans les 72 heures.</li>
+                        <li><strong>Code Vert</strong> : Priorité basse, intervention requise dans la semaine standard.</li>
+                    </ul>
+
+                    <h2>> LE CULTE DE LA MACHINE</h2>
+                    <p>Le Culte Mechanicus repose sur une théologie stricte, indispensable à la compréhension de la Quête du Savoir. Cette foi vénère une Trinité divine, fusionnant l'organique et le mécanique sous l'égide du fer :</p>
+
+                    <ul>
+                        <li><strong>Le Dieu-Machine (Le Créateur originel) :</strong> L'entité suprême, froide et omnisciente. Il est l'architecte de toute technologie et le détenteur du savoir absolu dans l'univers. Pour le Mechanicus, la chair est faible et éphémère, mais la perfection de la machine est l'expression directe de la volonté du Dieu-Machine.</li>
+                        <li><strong>L'Omnimessie (L'Incarnation, le Prophète) :</strong> L'avatar physique du Dieu-Machine parmi les mortels (le Messie). Pour la majorité de l'Imperium et des Techmarines, l'Empereur de l'Humanité est reconnu comme cette incarnation. Il est celui qui a apporté l'illumination technologique et unifié les mondes-forges.</li>
+                        <li><strong>La Force Motrice (L'Esprit Saint, le Souffle de Vie) :</strong> C'est l'énergie mystique et électrique qui donne vie à toute chose. C'est l'étincelle divine qui parcourt les circuits d'un Auspex, rugit dans le moteur d'un Rhino, et anime le cœur même des êtres vivants. C'est elle qui confère aux machines leur "Esprit-Machine".</li>
+                    </ul>
+
+                    <h2>> LES SEIZES LOIS UNIVERSELLES</h2>
+
+                    <p>Dans leur Quête du Savoir, les Techmarines et les adeptes de Mars sont guidés par un dogme immuable divisé en deux catégories distinctes, les Mystères et les Avertissements.</p> <br>
+
+                    <h3>> Les Huit Mystères — Le Dogme de la Vie et du Savoir</h3>
+                    <ul>
+                        <li>La vie est un mouvement dirigé.</li>
+                        <li>L'esprit est l'étincelle de vie.</li>
+                        <li>La sensibilité est la capacité d'apprendre la valeur de la connaissance.</li>
+                        <li>L'intellect est la compréhension de la connaissance.</li>
+                        <li>La conscience est la forme la plus élémentaire de l'intellect.</li>
+                        <li>La compréhension est le véritable chemin vers l'illumination.</li>
+                        <li>La compréhension est la clé de toute chose.</li>
+                        <li>L'Omnimessie sait tout, comprend tout.</li>
+                    </ul>
+                    <br>
+
+                    <h3>> Les Huit Avertissements — Les Interdits Sacrés</h3>
+                    <ul>
+                        <li>Le mécanisme étranger (Xenos) est une perversion du Vrai Chemin.</li>
+                        <li>L'âme est la conscience de la sensibilité.</li>
+                        <li>Une âme ne peut être conférée que par l'Omnimessie.</li>
+                        <li>La conscience sans âme (l'Abominable Intelligence) est l'ennemie de toute vie.</li>
+                        <li>Le savoir des Anciens est incontestable.</li>
+                        <li>L'Esprit de la Machine garde le savoir des Anciens.</li>
+                        <li>La chair est faillible, mais le rituel honore l'Esprit de la Machine.</li>
+                        <li>Rompre avec le rituel, c'est rompre avec la foi.</li>
+                    </ul>
+
+                    <h2>> LA QUÊTE DU SAVOIR &amp; L'ÉDIT D'INITIATION</h2>
+
+                    <p>Le but ultime du Culte Mechanicus est de rassembler et de comprendre tout le savoir de la galaxie pour honorer le Dieu-Machine. Les fidèles croient fermement que tout le savoir existe déjà dans l'univers ; il a simplement été perdu et n'attend que d'être redécouvert. Cette entreprise est sacrée et prévaut sur toute autre considération mortelle.</p>
+                    <br>
+                    
+                    <p>L'intégration d'un nouvel adepte n'est jamais acquise. Lors de l'arrivée d'un Apprenti Techmarine au sein des Forges, ce dernier se voit accorder un délai strict d'une semaine standard. Durant ce cycle, il doit élaborer et présenter son projet personnel afin de prouver sa valeur intellectuelle et amorcer officiellement sa propre Quête du Savoir devant ses pairs.</p>
+
+                    <h2>Rites, Culture et Litanies des Techmarines</h2>
+
+                    <p>Chaque action d'un Techmarine est codifiée. La maintenance n'est pas un acte de simple ingénierie, c'est un acte de dévotion, chaque erreur peut coûter la vie d'un Frère de bataille. Voici les rites majeurs et les prières qui les accompagnent. Chaque Techmarine, peut importe son rang se doit d'être capable de composer ces propres prières afin d'adapter ces litanies aux diverses situations qu'il peut rencontrer. Chaque Litanie ayant prouvé son efficacité doit être inscrite dans un registre public.</p>
+
+                    <h3>> Le Rite de l'Onction des Machines</h3>
+                    <p>Avant toute réparation ou activation, le Techmarine applique des huiles sacrées et de l'encens. Ce geste apaise l'Esprit-Machine de l'artéfact pour qu'il accepte l'intervention.</p>
+                    <br>
+                    <div>
+                        <strong>Prière d'Onction</strong>
+                        <p>« Ô Esprit de Fer, gardien des rouages éternels, entends la voix de ton serviteur béni par Mars. Je purifie ton enveloppe par l'huile sacrée. Je chasse les erreurs, je bannis les corruptions invisibles. Que tes fibres d'acier répondent à l'appel du devoir. »</p>
+                    </div>
+
+                    <h3>> Les Litanies de Réparation</h3>
+                    <p>Chaque action technique (resserrer un boulon, souder un blindage) est rythmée par la récitation de prières. Une syllabe manquée est une insulte à la Force Motrice, risquant de provoquer le dysfonctionnement de l'arme.</p>
+                    <br>
+                    <div>
+                        <strong>Prière de Réparation</strong>
+                        <p>« Dieu-Machine, pardonne les outrages du temps et de la guerre. Que mon marteau soit ta volonté, que ma clé soit ta précision. Par ce saint sceau de soudure, je referme tes plaies. Reçois le rite, accepte la pièce, retrouve ta parfaite fonction. »</p>
+                    </div>
+
+                    <h3>> Le Rite d'Éveil</h3>
+                    <p>Utilisé pour sortir un véhicule, une arme relique ou un Dreadnought de son sommeil. Le Techmarine psalmodie en binaire pour stimuler l'Esprit-Machine et l'inciter à la fureur guerrière.</p>
+                    <br>
+                    <div>
+                        <strong>Prière d'Éveil</strong>
+                        <p>« Que tes circuits s'illuminent de la volonté de l'Omnimessie. Par les sceaux de l'Adeptus Mechanicus, par les mystères du code ancien, je t'ordonne : Éveille-toi. Que ton cœur de machine batte à nouveau, que ta voix de tonnerre serve l'Imperium. Loué soit l'Acier. Loué soit la Fonction. Loué soit l'Éternité. »</p>
+                    </div>
+
+                    <h3>> La Communion Binaire — Le Cant Mécanique</h3>
+                    <p>Plus qu'un langage, c'est un état de transe. Via ses implants corticaux, le Techmarine se connecte à la noosphère de la machine. Ce rituel mystique fusionne temporairement la conscience humaine et les flux de données.</p>
+                    <br>
+                    <div>
+                        <strong>Chant de Communion</strong>
+                        <p><span>01000111 01101100 01101111 01101001 01110010 01100101</span>… Mon esprit s'abaisse devant ton architecture. Que tes diagnostics deviennent ma vision. Nous sommes un, dans l'acier partagé et le flux binaire parfait. Parle-moi en tension et en chaleur, je t'écouterai en foi et en code.</p>
+                    </div>
+
+                    <h3>> Le Rite de Maintenance Sacrée</h3>
+                    <p>C'est le travail quotidien des Forges. Les armures énergétiques et les Bolters sont démontés méthodiquement, purifiés de la crasse des xenos, puis bénis pièce par pièce avant le remontage.</p>
+                    <br>
+                    <div>
+                        <strong>Prière de Maintenance</strong>
+                        <p>« La rouille est la maladie de la chair faible, l'huile est le sang des immortels. Je chasse la poussière de l'ignorance. Par l'encens et la calibration, ton esprit est honoré. Repose dans la perfection, jusqu'à l'heure où l'Empereur réclamera ta colère. »</p>
+                    </div>
+
+                    <h3>> Le Serment du Maître de Forge</h3>
+                    <p>L'engagement solennel prononcé par l'officier suprême des Forges du Chapitre. Il jure de protéger les STC (Schémas de Construction Standard), de préserver les reliques et d'incarner le pont entre le Chapitre Space Marine et les prêtres de Mars.</p>
+                    <br>
+                    <div>
+                        <strong>Le Serment de la Forge</strong>
+                        <p>« Sur l'enclume écarlate de Mars et par le sang sacré de mon Primarque, je me tiens comme l'ultime rempart du savoir. Je jure de ne jamais laisser l'ignorance ternir nos reliques. Ce qui a été forgé sera préservé. Le feu de ma forge ne s'éteindra que lorsque les étoiles elles-mêmes seront réduites en cendres. »</p>
+                    </div>
+
+
                 `;
                 break;
 
@@ -204,8 +329,12 @@ class AppView {
                 this.renderCarousel(model, 'weapons'); 
                 break;
 
-            case 'relics':
-                if (!model.isRelicsAuthenticated) {
+            case 'gear': 
+                this.renderCarousel(model, 'gear'); 
+                break;
+
+            case 'logi':
+                if (!model.isLogiAuthenticated) {
                     this.renderLogin();
                 } else {
                     this.renderLogisticsLinks(model);
@@ -248,7 +377,10 @@ class AppView {
             title = "DÉPÔT MOTORISÉ : INSPECTION DES ESPRITS DE LA MACHINE";
         } else if (type === 'weapons') {
             item = model.weapons[model.currentWeaponIndex];
-            title = "ARMURERIE : ARSENAL DE L'ASTARTES";
+            title = "ARMURERIE : ARSENAL ET MATERIEL DU CHAPITRE";
+        } else if (type === 'gear') {
+            item = model.gear[model.currentWeaponIndex];
+            title = "FORGE : ÉQUIPEMENTS ET MATERIEL DU CHAPITRE";
         }
         
         let specsHTML = item.specs.map(spec => `<li>${spec}</li>`).join('');
@@ -304,7 +436,7 @@ class AppController {
     }
 
     attachEvents() {
-        if (this.model.currentView === 'vehicles' || this.model.currentView === 'weapons') {
+        if (this.model.currentView === 'vehicles' || this.model.currentView === 'weapons' || this.model.currentView === 'gear') {
             const type = this.model.currentView;
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
@@ -321,13 +453,13 @@ class AppController {
             };
         }
 
-        if (this.model.currentView === 'relics' && !this.model.isRelicsAuthenticated) {
+        if (this.model.currentView === 'logi' && !this.model.isLogiAuthenticated) {
             const btnLogin = document.getElementById('btn-login-submit');
             if (btnLogin) btnLogin.onclick = () => {
                 const u = document.getElementById('login-user').value;
                 const p = document.getElementById('login-pass').value;
                 if (this.model.checkCredentials(u, p)) {
-                    this.updateView('relics');
+                    this.updateView('logi');
                 } else {
                     this.view.renderLogin(true);
                     this.attachEvents();

@@ -22,6 +22,10 @@ body {
     text-shadow: var(--glow);
 }
 
+.center {
+    text-align: center;
+}
+
 /* Effet écran cathodique (CRT) */
 .crt::before {
     content: " ";
