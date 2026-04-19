@@ -13,11 +13,10 @@ class DataModel {
                 image: "img/rhino.png",
                 specs: [
                     "Classe: Transport Léger",
-                    "Blindage: Céramite Standard (Blindage 11)",
-                    "Armement: Bolter d'assaut sur pivot",
-                    "Capacité: 10 Astartes",
-                    "Point de Rép.: Faible - Maintenance requise: Huiles sacrées",
-                    "Rôle tactique: Déploiement rapide sur le front."
+                    "Rôle tactique: Déploiement rapide sur le front, transport de troupes.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
                 ]
             },
             {
@@ -25,11 +24,10 @@ class DataModel {
                 image: "img/predator.png",
                 specs: [
                     "Classe: Char de Combat Principal",
-                    "Blindage: Renforcé (Blindage 13)",
-                    "Armement: Autocanon tourelle, Bolters lourds latéraux",
-                    "Capacité: Équipage uniquement (2 Astartes)",
-                    "Point de Rép.: Moyen - Rites d'allumage complexes",
-                    "Rôle tactique: Soutien blindé, destruction d'infanterie lourde."
+                    "Rôle tactique: Soutien blindé, destruction d'infanterie lourde.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
                 ]
             },
             {
@@ -37,11 +35,10 @@ class DataModel {
                 image: "img/land_raider.png",
                 specs: [
                     "Classe: Char d'Assaut / Transport Lourd",
-                    "Blindage: Adamantium épaisseur max (Blindage 14)",
-                    "Armement: Canons lasers jumelés, Bolters lourds",
-                    "Capacité: 12 Astartes (ou Terminators)",
-                    "Point de Rép.: Élevé - Relique du chapitre",
-                    "Rôle tactique: Percée de lignes, transport de vétérans."
+                    "Rôle tactique: Percée de lignes, transport de troupes.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
                 ]
             },
             { 
@@ -49,11 +46,10 @@ class DataModel {
                 image: "img/land_speeder.png",
                 specs: [
                     "Classe: Véhicule Léger de Reconnaissance",
-                    "Blindage: Léger (Blindage 9)",
-                    "Armement: Bolter de reconnaissance, Missiles à fragmentation",
-                    "Capacité: 2 Astartes",
-                    "Point de Rép.: Faible - Maintenance rapide",
-                    "Rôle tactique: Reconnaissance, harcèlement rapide."
+                    "Rôle tactique: Reconnaissance, harcèlement rapide.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
                 ]
             },
             {
@@ -61,11 +57,10 @@ class DataModel {
                 image: "img/bike.png",
                 specs: [
                     "Classe: Véhicule Léger de Combat",
-                    "Blindage: Léger (Blindage 8)",
-                    "Armement: Bolter d'assaut",
-                    "Capacité: 1 Astartes",
-                    "Point de Rép.: Faible - Maintenance requise: Huiles sacrées",
-                    "Rôle tactique: Rapide, souplesse en combat."
+                    "Rôle tactique: Assaut motorisé, harcelment rapide.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
                 ]
             },
             {
@@ -73,14 +68,32 @@ class DataModel {
                 image: "img/thunderhawk.png",
                 specs: [
                     "Classe: Transport Aérien / Gunship",
-                    "Blindage: Renforcé (Blindage 12)",
-                    "Armement: Canons lasers, Missiles à fragmentation",
-                    "Capacité: 30 Astartes",
-                    "Point de Rép.: Moyen - Rites d'allumage complexes",
-                    "Rôle tactique: Appui aérien, transport de troupes."
+                    "Rôle tactique: Appui aérien, transport de troupes lourd.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
                 ]
-
+            },
+            {
+                name: "REPUSLOR",
+                image: "img/repulsor.png",
+                specs: [
+                    "Classe: Char de Combat Flottant, Transport Blindé.",
+                    "Rôle tactique: Transport Blindé, soutien offensif, mobilité stratégique, contrôle d’objectif.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
+                ]
+            },
+            {
+                name: "STORMTALON",
+                image: "img/stormtalon.png",
+                specs: [
+                    "Classe: Aéronef Leger de Combat, Appui Aérien",
+                    "Rôle tactique: Intercepteur aérien et appui-feu au sol, spécialisé dans l’escorte de troupes précieuses et les attaques éclairs contre l’infanterie et les véhicules légers."
+                ]
             }
+            
         ];
 
         this.isLogiAuthenticated = false; 
@@ -208,18 +221,8 @@ class AppView {
                 `;
                 break;
 
-            case 'protocols':
+            case 'cults':
                 this.appRoot.innerHTML = `
-                    <h2>> PROTOCOLES DE PRIORETISATION</h2>
-                    <p>En cas d'incidents, les protocoles de priorisation dictent l'ordre dans lequel les réparations et les maintenances doivent être effectuées.<br>
-                    En ce qui concernerne les pénuries de stocks, le Maître des Forges viendra définir lui-même la priorité de chaque matériel nécessaire au bon fonctionnement du Chapitre.</p>
-                    <ul>
-                        <li><strong>Code Rouge</strong> : Priorité absolue, nécessite une intervention immédiate.</li>
-                        <li><strong>Code Orange</strong> : Priorité élevée, intervention requise dans les 24 heures.</li>
-                        <li><strong>Code Jaune</strong> : Priorité modérée, intervention requise dans les 72 heures.</li>
-                        <li><strong>Code Vert</strong> : Priorité basse, intervention requise dans la semaine standard.</li>
-                    </ul>
-
                     <h2>> LE CULTE DE LA MACHINE</h2>
                     <p>Le Culte Mechanicus repose sur une théologie stricte, indispensable à la compréhension de la Quête du Savoir. Cette foi vénère une Trinité divine, fusionnant l'organique et le mécanique sous l'égide du fer :</p>
 
@@ -228,7 +231,7 @@ class AppView {
                         <li><strong>L'Omnimessie (L'Incarnation, le Prophète) :</strong> L'avatar physique du Dieu-Machine parmi les mortels (le Messie). Pour la majorité de l'Imperium et des Techmarines, l'Empereur de l'Humanité est reconnu comme cette incarnation. Il est celui qui a apporté l'illumination technologique et unifié les mondes-forges.</li>
                         <li><strong>La Force Motrice (L'Esprit Saint, le Souffle de Vie) :</strong> C'est l'énergie mystique et électrique qui donne vie à toute chose. C'est l'étincelle divine qui parcourt les circuits d'un Auspex, rugit dans le moteur d'un Rhino, et anime le cœur même des êtres vivants. C'est elle qui confère aux machines leur "Esprit-Machine".</li>
                     </ul>
-
+                    <br>
                     <h2>> LES SEIZES LOIS UNIVERSELLES</h2>
 
                     <p>Dans leur Quête du Savoir, les Techmarines et les adeptes de Mars sont guidés par un dogme immuable divisé en deux catégories distinctes, les Mystères et les Avertissements.</p> <br>
@@ -257,14 +260,14 @@ class AppView {
                         <li>La chair est faillible, mais le rituel honore l'Esprit de la Machine.</li>
                         <li>Rompre avec le rituel, c'est rompre avec la foi.</li>
                     </ul>
-
+                    <br>
                     <h2>> LA QUÊTE DU SAVOIR &amp; L'ÉDIT D'INITIATION</h2>
 
                     <p>Le but ultime du Culte Mechanicus est de rassembler et de comprendre tout le savoir de la galaxie pour honorer le Dieu-Machine. Les fidèles croient fermement que tout le savoir existe déjà dans l'univers ; il a simplement été perdu et n'attend que d'être redécouvert. Cette entreprise est sacrée et prévaut sur toute autre considération mortelle.</p>
                     <br>
                     
                     <p>L'intégration d'un nouvel adepte n'est jamais acquise. Lors de l'arrivée d'un Apprenti Techmarine au sein des Forges, ce dernier se voit accorder un délai strict d'une semaine standard. Durant ce cycle, il doit élaborer et présenter son projet personnel afin de prouver sa valeur intellectuelle et amorcer officiellement sa propre Quête du Savoir devant ses pairs.</p>
-
+                    <br>
                     <h2>Rites, Culture et Litanies des Techmarines</h2>
 
                     <p>Chaque action d'un Techmarine est codifiée. La maintenance n'est pas un acte de simple ingénierie, c'est un acte de dévotion, chaque erreur peut coûter la vie d'un Frère de bataille. Voici les rites majeurs et les prières qui les accompagnent. Chaque Techmarine, peut importe son rang se doit d'être capable de composer ces propres prières afin d'adapter ces litanies aux diverses situations qu'il peut rencontrer. Chaque Litanie ayant prouvé son efficacité doit être inscrite dans un registre public.</p>
@@ -319,6 +322,79 @@ class AppView {
 
 
                 `;
+                break;
+
+            case 'protocols':
+                this.appRoot.innerHTML = `
+                    <h2>> PROTOCOLES DE MAINTENANCE ET D'OPÉRATION</h2>
+                    <p>Les Techmarines suivent des protocoles stricts pour garantir la sécurité et l'efficacité de leurs interventions. Les procédures principales sont renseignée ici.</p>
+                    <br>
+
+                    <h2>> PROTOCOLES DE PRIORETISATION</h2>
+                    <p>En cas d'incidents, les protocoles de priorisation dictent l'ordre dans lequel les réparations et les maintenances doivent être effectuées.<br>
+                    En ce qui concernerne les pénuries de stocks, le Maître des Forges viendra définir lui-même la priorité de chaque matériel nécessaire au bon fonctionnement du Chapitre.</p>
+                    <ul>
+                        <li><strong>Code Rouge</strong> : Priorité absolue, nécessite une intervention immédiate.</li>
+                        <li><strong>Code Orange</strong> : Priorité élevée, intervention requise dans les 24 heures.</li>
+                        <li><strong>Code Jaune</strong> : Priorité modérée, intervention requise dans les 72 heures.</li>
+                        <li><strong>Code Vert</strong> : Priorité basse, intervention requise dans la semaine standard.</li>
+                    </ul>
+                
+                    <br>
+                    <h2>> PROTOCOLES DE SÉCURITÉ - HAUTEUR PERSONNELLE</h2>
+                    <p>Les Techmarines doivent suivre des protocoles de sécurité rigoureux pour éviter les accidents et les contaminations. Voici les principaux protocoles à respecter :</p>
+                    <ul>
+                        <li><strong>Protocole de Contamination</strong> : En cas de contact avec des substances xenos ou dangereuses, le Techmarine doit immédiatement se désinfecter et signaler l'incident au Maître des Forges.</li>
+                        <li><strong>Protocole de Surchauffe</strong> : Si une arme ou un véhicule montre des signes de surchauffe, le Techmarine doit cesser toute utilisation et procéder à une inspection complète avant toute nouvelle activation.</li>
+                        <li><strong>Protocole de Sécurité Électrique</strong> : Lors de l'entretien de systèmes électriques, le Techmarine doit s'assurer que le système est hors tension et utiliser des équipements de protection appropriés pour éviter les chocs électriques.</li>
+                        <li><strong>Protocole de Manipulation des Reliques</strong> : Les reliques doivent être manipulées avec une extrême précaution, en suivant les rituels d'Onction et de Réparation pour éviter toute malédiction ou dysfonctionnement.</li>
+                    </ul>                
+                    <br>
+
+                    <h2>> PROTOCOLES DE SÉCURITÉ - HAUTEUR OPÉRATIONNELLE</h2>
+                    <p>Lors des opérations sur le champ de bataille, les Techmarines doivent suivre des protocoles spécifiques pour assurer la sécurité de leurs frères d'armes et l'efficacité de leurs interventions :</p>
+                    <ul>
+                        <li><strong>Protocole de Priorisation en Combat</strong> : En cas de défaillance d'un véhicule ou d'une arme, le Techmarine doit évaluer rapidement la situation et prioriser les réparations en fonction de l'impact sur la mission et la sécurité des troupes.</li>
+                        <li><strong>Protocole de Communication</strong> : Le Techmarine doit maintenir une communication constante avec les commandants pour coordonner les réparations et les soutiens logistiques, en utilisant des codes spécifiques pour signaler les urgences.</li>
+                        <li><strong>Protocole de Retrait en Cas de Danger</strong> : Si la situation devient trop dangereuse pour le Techmarine, il doit se retirer immédiatement et signaler sa position pour une extraction sécurisée, en utilisant des signaux de détresse spécifiques.</li>
+                    </ul>
+                    <p>Il est primordial pour tout Techmarine de rapeller que, notamment lors des opérations, le Techmarine engagé dans une escouade se doit d'obéir à la hiérarchie de cette dite escouade. Son devoir de Techmarine est cependant prioritaire, notamment sur base, aux ordres de la hierarchie du Chapitre.</p>
+                    <br>
+
+                    <h2>> PROTOCOLES DE SÉCURITÉ - HAUTEUR LOGISTIQUE</h2>
+                    <p>Dans les opérations logistiques, les Techmarines doivent suivre des protocoles pour assurer la sécurité des ressources et la continuité des approvisionnements :</p>
+                    <ul>
+                        <li><strong>Protocole de Sécurité des Stocks</strong> : Les Techmarines doivent surveiller les niveaux de stock et signaler toute pénurie imminente au Maître des Forges pour éviter les ruptures critiques.</li>
+                        <li><strong>Protocole de Transport</strong> : Lors du transport de matériel sensible ou de reliques, les Techmarines doivent s'assurer que les cargaisons sont sécurisées et protégées contre les attaques ennemies ou les sabotages.</li>
+                        <li><strong>Protocole de Maintenance Préventive</strong> : Les Techmarines doivent effectuer des inspections régulières et des maintenances préventives sur les équipements logistiques pour garantir leur fiabilité lors des opérations.</li
+                        <li><strong>Protocole de Coordination avec les Commandants</strong> : Les Techmarines doivent coordonner étroitement avec les commandants pour planifier les approvisionnements et les déploiements logistiques, en utilisant des canaux de communication sécurisés. Tout commande aux Forges doit obligatoirement être soumise par des canneaux écris (<i>Radio D</i>) par les Officiers du Chapitre avec une validation du Capitaine (Lieutenant en cas exeptionnel) de la Compagnie effectuant la commande.</li>
+                        <li><strong>Protocole de Traitement des Commandes</strong> : Toute commande de matériel ou de réparation doit être traitée avec la plus grande rigueur. Les Techmarines doivent vérifier l'authenticité de la commande, s'assurer que les ressources nécessaires sont disponibles, et suivre les procédures de validation avant d'exécuter la commande. Cela passe également par la tenue correcte du registre des ressources du Chapitre (Voir \'Accès Logistiques\').</li>
+                        <li><strong>Protocole de Sécurité des Forges et du Coffre-Fort</strong> : Les Techmarines doivent assurer la sécurité des Forges et du Coffre-Fort, pour cela, chaque Techmarine présent dans l'enceinte des Forges doit présenter de façon visibile une arme chargée, en ayant la sécurité d'activée. Aucun Frère n'est autorisé a pénétré l'enceinte des Forges, et encore moins rejoindre le Coffre-Fort sans une accréditation spécifique, de la part d'au moins le Capitaine de ça Compagnie (Capitaine ou État-Major).</li>
+                    </ul>
+                    <br>
+
+                    <h2>> PROTOCOLES ORGANISATIONNELS</h2>
+                    <p>En plus des protocoles de sécurité, les Techmarines doivent suivre des protocoles organisationnels pour assurer la coordination et l'efficacité au sein du Chapitre :</p>
+                    <ul>
+                        <li><strong>Protocole de Hiérarchie</strong> : Les Techmarines doivent respecter la hiérarchie du Chapitre, en suivant les ordres des supérieurs et en coordonnant leurs actions avec les autres membres de l'escouade et du Chapitre.</li>
+                        <li><strong>Protocole de Formation Continue</strong> : Les Techmarines doivent participer régulièrement à des formations et des exercices pour maintenir leurs compétences techniques et tactiques à jour.</li>
+                        <li><strong>Protocole de Documentation</strong> : Les Techmarines doivent documenter toutes les interventions, réparations et maintenances dans les registres officiels du Chapitre pour assurer la traçabilité et le partage des connaissances. Toute nouvelle technique ou découverte doit être consignée dans les archives du Chapitre pour être partagée avec les générations futures.</li>
+                    </ul>
+                    <br>
+                    <p>
+                        En plus des différents Protocoles d'Organisations présent ci-dessus, le Maître des Forges viendra organiser une fois toutes les deux semaines standarts une réunion de tous les Techmarines du Chapitre afin de faire le point sur les différentes opérations en cours, les différentes découvertes et les différents problèmes rencontrés. C'est également lors de ces réunions que le Maître des Forges viendra définir les priorités de chaque Techmarine pour les deux semaines à venir.
+                        C'est lors de cette réunion bihebdomaire que les Techmarines pourront également faire part de leurs découvertes, de leurs problèmes et de leurs idées pour améliorer le fonctionnement du Chapitre.<br><br>
+                        Après les différents rapports de chaque Techmarine, qui auront tous une occasion de s'exprimer, le Maître des Forges viendra désigner personnellement les deux prochains Techmarines qui auront l'honneur de recevoir les rôles d'Opérateur Logistique et d'Opérateur de Production pour la prochaine période. Voici un détail de leurs rôles respectifs : <br>
+                        <ul>
+                            <li><strong>Opérateur Logistique</strong> : Responsable de la gestion des ressources, de la coordination des approvisionnements et de la supervision des opérations logistiques. Il doit assurer la disponibilité des matériaux nécessaires pour les réparations et les maintenances, il doit également s'assurer que les différents inventaires dans les Compagnies soient effectués. Il est le principal garrant du Registre Logistique du Chapitre (Voir \'Accès Logistiques\').</li>
+                            <li><strong>Opérateur de Production</strong> : Responsable de la supervision de la production et de l'entretien des équipements. Il doit s'assurer que les réparations sont effectuées selon les standards du Chapitre, que les nouvelles constructions respectent les spécifications techniques, et que les reliques sont préservées avec le plus grand soin. Il viens de ça responsabilité que chaque commande effectué aux Forges soit honorée dans les temps.</li>
+                        </ul>
+                        <br>
+                        Ces deux rôles sont des acteurs clés dans le fonctionnement du Chapitre, ils sont les principaux relais entre le Maître des Forges et les autres Techmarines, ils sont chargés de répartir leurs confrères dans les tâches qu'ils ont a effectué (gestion logistique ou gestion de la production) et de faire remonter les informations au Maître des Forges. <br><br>                        
+                        Il est également important de rapeller que les Techmarines sont des membres à part entière de leur Compagnie, et que, même si leur rôle est avant tout technique, ils doivent également être capable de se battre aux côtés de leurs Frères d'Armes. C'est pourquoi, lors de ces réunions, le Maître des Forges viendra également organiser des exercices de combat pour permettre aux Techmarines de maintenir leurs compétences martiales à jour.
+                                            
+                    </p>
+                    `;
                 break;
 
             case 'vehicles': 
