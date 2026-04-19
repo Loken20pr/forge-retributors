@@ -41,6 +41,50 @@ class DataModel {
                     "Capacité: "
                 ]
             },
+            {
+                name: "REPUSLOR",
+                image: "img/repulsor.png",
+                specs: [
+                    "Classe: Char de Combat Flottant, Transport Blindé.",
+                    "Rôle tactique: Transport Blindé, soutien offensif, mobilité stratégique, contrôle d’objectif.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
+                ]
+            },
+            {
+                name: "STORMTALON",
+                image: "img/stormtalon.png",
+                specs: [
+                    "Classe: Aéronef Leger de Combat, Appui Aérien",
+                    "Rôle tactique: Intercepteur aérien et appui-feu au sol, escorte de troupes, attaques éclairs contre l’infanterie et les véhicules légers.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
+                ]
+            },
+            {
+                name: "STORMRAVEN",
+                image: "img/stormraven.png",
+                specs: [
+                    "Classe: Aéronef Lourd de Transport et de Combat",
+                    "Rôle tactique: Transport de troupes lourd, soutien aérien, assaut rapide, insertion de forces d'élite, appui-feu contre les cibles fortifiées.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
+                ]
+            },
+            {
+                name: "THUNDERHAWK",
+                image: "img/thunderhawk.png",
+                specs: [
+                    "Classe: Transport Aérien / Gunship",
+                    "Rôle tactique: Appui aérien, transport de troupes lourd.",
+                    "Blindage: ",
+                    "Armement: ",
+                    "Capacité: "
+                ]
+            },
             { 
                 name: "LAND SPEEDER",
                 image: "img/land_speeder.png",
@@ -64,33 +108,32 @@ class DataModel {
                 ]
             },
             {
-                name: "THUNDERHAWK",
-                image: "img/thunderhawk.png",
+                name: "DREADNOUGHT",
+                image: "img/dreadnought.png",
                 specs: [
-                    "Classe: Transport Aérien / Gunship",
-                    "Rôle tactique: Appui aérien, transport de troupes lourd.",
+                    "Classe: Marcheur Blindé de Combat, Sarcophage de Guerre",
+                    "Rôle tactique: Soutien de feu lourd, percée de lignes, assaut contre les cibles fortifiées, défense de positions stratégiques.",
                     "Blindage: ",
                     "Armement: ",
                     "Capacité: "
                 ]
             },
             {
-                name: "REPUSLOR",
-                image: "img/repulsor.png",
+                name: "CHEVALIER IMPERIAL",
+                image: "img/knight.png",
                 specs: [
-                    "Classe: Char de Combat Flottant, Transport Blindé.",
-                    "Rôle tactique: Transport Blindé, soutien offensif, mobilité stratégique, contrôle d’objectif.",
-                    "Blindage: ",
-                    "Armement: ",
-                    "Capacité: "
+                    "Classe: Marcheur de Combat Lourd, Chevalier de Guerre",
+                    "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
                 ]
             },
             {
-                name: "STORMTALON",
-                image: "img/stormtalon.png",
+                name: "TITAN WARHOUND",
+                image: "img/warhound.png",
                 specs: [
-                    "Classe: Aéronef Leger de Combat, Appui Aérien",
-                    "Rôle tactique: Intercepteur aérien et appui-feu au sol, spécialisé dans l’escorte de troupes précieuses et les attaques éclairs contre l’infanterie et les véhicules légers."
+                    "Classe: Titan de Combat Lourd, Marcheur de Guerre",
+                    "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
+                    "Blindage: ",
+                    "Armement: "
                 ]
             }
             
@@ -105,24 +148,381 @@ class DataModel {
         // --- GESTION ARMES ---
         this.currentWeaponIndex = 0;
         this.weapons = [
+            // Bolters classiques
             {
-                name: "BOLTER",
-                image: "img/bolter.png", 
+                name: "BOLTER MK2",
+                image: "img/bolter_mk2.png",
                 specs: [
-                    "Type: Arme Lourde d'Appui",
-                    "Munition: Calibre .998 Explosif Rétro-propulsé",
-                    "Cadence de tir: Élevée",
-                    "Rôle: Suppression d'infanterie de masse."
+                    "Type: Arme standard",
+                    "Utilisateur: Space Marines",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Polyvalence en combat."
                 ]
             },
             {
-                name: "FUSIL À PLASMA",
-                image: "img/plasma.png", 
+                name: "BOLTER LOURD MK2",
+                image: "img/bolter_lourd_mk2.png",
                 specs: [
-                    "Type: Arme Spéciale",
-                    "Énergie: Hydrogène photoplasmique",
-                    "Rôle: Perforation de blindage lourd, anti-élite.",
-                    "!! ATTENTION !!: Risque de surchauffe létale pour le porteur sans refroidissement."
+                    "Type: Arme Lourde",
+                    "Utilisateur: Devastator",
+                    "Munition: Bolter",
+                    "Cadence de tir: Élevée",
+                    "Rôle: Suppression d'infanterie."
+                ]
+            },
+            {
+                name: "BOLTER SNIPER MK2",
+                image: "img/bolter_sniper_mk2.png",
+                specs: [
+                    "Type: Arme de précision",
+                    "Utilisateur: Eliminator",
+                    "Munition: Bolter",
+                    "Cadence de tir: Faible",
+                    "Rôle: Élimination de cibles prioritaires."
+                ]
+            },
+
+            // Carabines Bolter
+            {
+                name: "CARABINE BOLTER STANDARD MK2",
+                image: "img/carabine_bolter_standard.png",
+                specs: [
+                    "Type: Arme légère",
+                    "Utilisateur: Space Marines",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Combat mobile."
+                ]
+            },
+            {
+                name: "CARABINE BOLTER MARKSMAN MK2",
+                image: "img/carabine_bolter_marksman.png",
+                specs: [
+                    "Type: Arme de précision",
+                    "Utilisateur: Space Marines",
+                    "Munition: Bolter",
+                    "Cadence de tir: Faible",
+                    "Rôle: Tir à moyenne portée."
+                ]
+            },
+            {
+                name: "CARABINE BOLTER OCULUS MK2",
+                image: "img/carabine_bolter_oculus.png",
+                specs: [
+                    "Type: Arme tactique",
+                    "Utilisateur: Space Marines",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Détection et neutralisation."
+                ]
+            },
+            {
+                name: "CARABINE BOLTER INFILTRATOR MK2",
+                image: "img/carabine_bolter_infiltrator.png",
+                specs: [
+                    "Type: Arme furtive",
+                    "Utilisateur: Infiltrator",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Engagement discret."
+                ]
+            },
+
+            // Néo-Bolter
+            {
+                name: "FUSIL NEO-BOLTER",
+                image: "img/neo_bolter.png",
+                specs: [
+                    "Type: Arme standard",
+                    "Utilisateur: Neophyte",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Formation et soutien."
+                ]
+            },
+            {
+                name: "FUSIL NEO-SHOTGUN",
+                image: "img/neo_shotgun.png",
+                specs: [
+                    "Type: Arme de tir à courte portée",
+                    "Utilisateur: Neophyte",
+                    "Munition: Ballistique",
+                    "Cadence de tir: Faible",
+                    "Rôle: Combat rapproché."
+                ]
+            },
+            {
+                name: "FUSIL MELTA MK2",
+                image: "img/melta_mk2.png",
+                specs: [
+                    "Type: Arme anti-blindé",
+                    "Utilisateur: Devastator",
+                    "Munition: Melta",
+                    "Cadence de tir: Faible",
+                    "Rôle: Destruction de cibles lourdes."
+                ]
+            },
+            {
+                name: "MULTI-MELTA LOURD MK2",
+                image: "img/multi_melta.png",
+                specs: [
+                    "Type: Arme Lourde",
+                    "Utilisateur: Devastator",
+                    "Munition: Melta",
+                    "Cadence de tir: Faible",
+                    "Rôle: Anti-véhicule."
+                ]
+            },
+            {
+                name: "FUSIL NEO-MELTA",
+                image: "img/neo_melta.png",
+                specs: [
+                    "Type: Arme anti-blindé",
+                    "Utilisateur: Neophyte",
+                    "Munition: Melta",
+                    "Cadence de tir: Faible",
+                    "Rôle: Initiation au combat lourd."
+                ]
+            },
+            
+            {
+                name: "FUSIL NEO-PLASMA",
+                image: "img/neo_plasma.png",
+                specs: [
+                    "Type: Arme énergétique",
+                    "Utilisateur: Neophyte",
+                    "Munition: Plasma",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Polyvalence énergétique."
+                ]
+            },
+            {
+                name: "INCINERATEUR PLASMA LOURD MK2",
+                image: "img/plasma_lourd.png",
+                specs: [
+                    "Type: Arme Lourde",
+                    "Utilisateur: Devastator",
+                    "Munition: Plasma",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Nettoyage de zone."
+                ]
+            },
+            
+            {
+                name: "LASSNIPER MK2",
+                image: "img/las_sniper.png",
+                specs: [
+                    "Type: Arme de précision",
+                    "Utilisateur: Eliminator",
+                    "Munition: Laser",
+                    "Cadence de tir: Faible",
+                    "Rôle: Tir longue portée."
+                ]
+            },
+            {
+                name: "LONGLAS MKV",
+                image: "img/longlas.png",
+                specs: [
+                    "Type: Arme de précision",
+                    "Utilisateur: Eliminator",
+                    "Munition: Laser",
+                    "Cadence de tir: Faible",
+                    "Rôle: Sniper longue portée."
+                ]
+            },
+            {
+                name: "PISTOLET BOLTER MK2",
+                image: "img/pistolet_bolter.png",
+                specs: [
+                    "Type: Arme secondaire",
+                    "Utilisateur: Space Marines",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Combat rapproché.",
+                    "Vartiante: Avec bouclier tactique"
+                ]
+            },
+            {
+                name: "PISTOLET BOLTER LÉGER MK2",
+                image: "img/pistolet_bolter_lourd.png",
+                specs: [
+                    "Type: Arme secondaire",
+                    "Utilisateur: Space Marines",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Combat rapporché lourd."
+                ]
+            },
+            {
+                name: "PISTOLET PLASMA MK2",
+                image: "img/pistolet_plasma.png",
+                specs: [
+                    "Type: Arme secondaire",
+                    "Utilisateur: Space Marines",
+                    "Munition: Plasma",
+                    "Cadence de tir: Faible",
+                    "Rôle: Puissance concentrée."
+                ]
+            },
+            {
+                name: "PISTOLET NEO-BOLTER MK2",
+                image: "img/pistolet_neo_bolter.png",
+                specs: [
+                    "Type: Arme secondaire",
+                    "Utilisateur: Neophyte",
+                    "Munition: Bolter",
+                    "Cadence de tir: Moyenne",
+                    "Rôle: Formation rapprochée."
+                ]
+            },
+            {
+                name: "COUTEAU ASTARTES",
+                image: "img/couteau_astartes.png",
+                specs: [
+                    "Type: Arme de mêlée",
+                    "Utilisateur: Space Marines",
+                    "Rôle: Combat rapproché, utilitaire."
+                ]
+            },
+            {
+                name: "PELLE DE COMBAT",
+                image: "img/pelle_combat.png",
+                specs: [
+                    "Type: Arme de mêlée",
+                    "Utilisateur: Space Marines",
+                    "Rôle: Combat rapproché, utilitaire."
+                ]
+            },
+            {
+                name: "EPEE TRONCONNEUSE",
+                image: "img/epee_tronconneuse.png",
+                specs: [
+                    "Type: Arme de mêlée",
+                    "Utilisateur: Space Marines",
+                    "Rôle: Combat rapproché brutal.",
+                    "Variante: Avec bouclier"
+                ]
+            },
+            {
+                name: "EPEE ENERGETIQUE",
+                image: "img/epee_energetique.png",
+                specs: [
+                    "Type: Arme énergétique",
+                    "Utilisateur: Space Marines",
+                    "Rôle: Pénétration d’armure.",
+                    "Variante: Avec bouclier"
+                ]
+            },
+            {
+                name: "HACHE TRONCONNEUSE MK1",
+                image: "img/hache_tronconneuse.png",
+                specs: [
+                    "Type: Arme de mêlée",
+                    "Utilisateur: Space Marines",
+                    "Rôle: Démembrement.",
+                    "Variante: Avec bouclier"
+                ]
+            },
+            {
+                name: "HACHE ENERGETIQUE MK1",
+                image: "img/hache_energetique.png",
+                specs: [
+                    "Type: Arme énergétique",
+                    "Utilisateur: Space Marines",
+                    "Rôle: Anti-armure.",
+                    "Variante: Avec bouclier"
+                ]
+            },
+            {
+                name: "CROZIUS",
+                image: "img/crozius.png",
+                specs: [
+                    "Type: Arme sacrée",
+                    "Utilisateur: Chapelain",
+                    "Rôle: Combat et symbole d'autorité.",
+                    "Variante: Avec bouclier"
+                ]
+            },
+            {
+                name: "HALLEBARDE TECHMARINE",
+                image: "img/hallebarde_techmarine.png",
+                specs: [
+                    "Type: Arme de mêlée",
+                    "Utilisateur: Techmarine",
+                    "Rôle: Combat technique."
+                ]
+            },
+            {
+                name: "JUMP PACK ASTARTES",
+                image: "img/jump_pack.png",
+                specs: [
+                    "Type: Équipement de mobilité",
+                    "Utilisateur: Assaut",
+                    "Rôle: Déploiement rapide."
+                ]
+            },
+            {
+                name: "GRAPPIN ASTARTES",
+                image: "img/grappin.png",
+                specs: [
+                    "Type: Équipement tactique",
+                    "Utilisateur: Scout Neophyte / Eliminator",
+                    "Rôle: Mobilité verticale."
+                ]
+            },
+            {
+                name: "MODULE DE CERAMITE LEGERE",
+                image: "img/ceramite.png",
+                specs: [
+                    "Type: Module Astartes",
+                    "Utilisateur: Assaut",
+                    "Fonction: Réduction des plaques d'armures au profit d'une meilleure mobilité.",
+                ]
+            },
+            {
+                name: "MODULE DE CERAMITE RENFORCÉE",
+                image: "img/ceramite.png",
+                specs: [
+                    "Type: Module Astartes",
+                    "Utilisateur: Devastator",
+                    "Fonction: Renforcement des plaques d'armures au détriment de la mobilité.",
+                ]
+            },
+            {
+                name: "MODULE DE DROGUE STAMINA",
+                image: "img/stamina.png",
+                specs: [
+                    "Type: Module Astartes",
+                    "Utilisateur: Space Marines",
+                    "Fonction: Augmente la vitesse et diminue la fatigue au détriment de l'intégrité organique."
+                ]
+            },
+            {
+                name: "MODULE DE DROGUE D'ENDURANCE",
+                image: "img/endurance.png",
+                specs: [
+                    "Type: Module Astartes",
+                    "Utilisateur: Space Marines",
+                    "Fonction: Augmente la résistance au détriment de la vitesse et de la fatigue."
+                ]
+            },
+            {
+                name: "MODULE DE SCANNER TACTIQUE",
+                image: "img/scanner.png",
+                specs: [
+                    "Type: Module Astartes",
+                    "Utilisateur: Space Marines",
+                    "Fonction: Fournit une analyse en temps réel de l'environnement et des cibles, même au travers des murs."
+                ]
+            },
+            {
+                name: "MODULE DE VISION NOCTURNE",
+                image: "img/night_vision.png",
+                specs: [
+                    "Type: Module Astartes",
+                    "Utilisateur: Space Marines",
+                    "Fonction: Permet de voir dans l'obscurité totale en amplifiant les faibles sources de lumière."
                 ]
             }
         ];
@@ -130,6 +530,33 @@ class DataModel {
         // --- GESTION DU MATERIEL ---
         this.currentGearIndex = 0;
         this.gear = [
+            {
+                name: "FABRICATOR",
+                image: "img/fabricator.png",
+                specs: [
+                    "Type: Système de Fabrication",
+                    "Fonction: Assemblage de pièces, fabrication d'armes et de munition, réparation de matériel."
+                ]
+            },
+            {
+                name: "FABRICATOR LOURD",
+                image: "img/fabricator_heavy.png",
+                specs: [
+                    "Type: Système de Fabrication Lourde",
+                    "Fonction: Fabrication de véhicules, réparation de blindés, construction de fortifications."
+                ]
+            },
+            {
+                name: "TOURELLE DE DÉFENSE",
+                image: "img/turret.png", 
+                specs: [
+                    "Type: Système de Défense Stationnaire",
+                    "Armement: Fusils laser, Canons Plasma",
+                    "Rôle: Défense de périmètre, suppression d'infanterie.",
+                    "Modules : Bolter, Assaut (Heavy Stubbers), Plasma, LasCannon, Melta, Multi-Melta.",
+                    "Augmentiques: Blindage renforcé."
+                ]
+            },
             {
                 name: "REPARATUM",
                 image: "img/reparatum.png", 
@@ -140,15 +567,60 @@ class DataModel {
                 ]
             },
             {
-                name: "TOURELLE DE DÉFENSE",
-                image: "img/turret.png", 
+                name: "NARCTECIUM",
+                image: "img/nartec.png",
                 specs: [
-                    "Type: Système de Défense Stationnaire",
-                    "Armement: Fusils laser, Canons Plasma",
-                    "Rôle: Défense de périmètre, suppression d'infanterie.",
-                    "Modules : "
+                    "Type: Système de Soins Portatif",
+                    "Fonction: Administration de nanites de réparation, stabilisation des blessures, traitement de la fatigue.",
+                    "Rôle: Soins d'urgence sur le champ de bataille, récupération rapide des blessés, soutien aux opérations prolongées."
+                ]
+            },
+            {
+                name: "REANIMATOR",
+                image: "img/reanimator.png",
+                specs: [
+                    "Type: Système de Réanimation Portatif",
+                    "Fonction: Administration de nanites de réanimation, stimulation cardiaque, restauration des fonctions vitales.",
+                    "Rôle: Réanimation d'urgence sur le champ de bataille, récupération des blessés critiques, soutien aux opérations prolongées."
+                ]
+            },
+            {
+                name: "SCANNER MEDICAL",
+                image: "img/medscanner.png",
+                specs: [
+                    "Type: Système de Diagnostic Médical Portatif",
+                    "Fonction: Analyse rapide de l'état de l'intégrité des organes.",
+                    "Rôle: Diagnostic rapide sur le champ de bataille, évaluation de la gravité des blessures, soutien aux décisions médicales d'urgence."
+                ]
+            },
+            {
+                name: "TABLETTE DE DONNEES",
+                image: "img/tablet.png",
+                specs: [
+                    "Type: ",
+                    "Fonction: ",
+                    "Rôle: "
+                ]
+            },
+            {
+                name: "DATAPAD TACTIQUE",
+                image: "img/tablet.png",
+                specs: [
+                    "Type: ",
+                    "Fonction: ",
+                    "Rôle: "
+                ]
+            },
+            {
+                name: "POCHE DE COMBAT",
+                image: "img/pocket.png",
+                specs: [
+                    "Type: Augmentation de Stockage Personnel",
+                    "Fonction: Compartiments de stockage supplémentaires, accès rapide à l'équipement.",
+                    "Rôle: Permet au Space Marine de transporter plus de matériel sur le champ de bataille, améliore la flexibilité tactique, facilite l'accès à l'équipement essentiel."
                 ]
             }
+
         ];
     }
 
