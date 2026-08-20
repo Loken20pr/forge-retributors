@@ -9,14 +9,25 @@ class DataModel {
         this.currentVehicleIndex = 0;
         this.vehicles = [
             {
-                name: "RHINO",
+                name: "RHINO MK1",
                 image: "img/rhino.png",
                 specs: [
                     "Classe: Transport Léger",
                     "Rôle tactique: Déploiement rapide sur le front, transport de troupes.",
-                    "Blindage: ",
-                    "Armement: ",
-                    "Capacité: "
+                    "Prix: 1000 crédits.",
+                    "Capacité: 12.",
+                    "Armement: Bolter Lourd."
+                ]
+            },
+            {
+                name: "RHINO MK2",
+                image: "img/rhino2.png",
+                specs: [
+                    "Classe: Transport Léger",
+                    "Rôle tactique: Déploiement rapide sur le front, transport de troupes.",
+                    "Prix: 1150 crédits.",
+                    "Capacité: 12.",
+                    "Armement: Bolter Lourd x2."
                 ]
             },
             {
@@ -24,10 +35,21 @@ class DataModel {
                 image: "img/predator.png",
                 specs: [
                     "Classe: Char de Combat Principal",
+                    "Rôle tactique: Soutien blindé, destruction d'infanterie lourde et de blindés.",
+                    "Prix: 1500 crédits.",
+                    "Capacité: 3.",
+                    "Armement: Bolter Lourd Jumelé x2, Canon Predator, Lance Fumigène."
+                ]
+            },
+            {
+                name: "PREDATOR AUTOCANNON",
+                image: "img/predator2.png",
+                specs: [
+                    "Classe: Char de Combat Principal",
                     "Rôle tactique: Soutien blindé, destruction d'infanterie lourde.",
-                    "Blindage: ",
-                    "Armement: ",
-                    "Capacité: "
+                    "Prix: 1300 crédits.",
+                    "Capacité: 3.",
+                    "Armement: Bolter Lourd Jumelé x2, Auto-Canon Predator, Lance Fumigène."
                 ]
             },
             {
@@ -36,19 +58,17 @@ class DataModel {
                 specs: [
                     "Classe: Char d'Assaut / Transport Lourd",
                     "Rôle tactique: Percée de lignes, transport de troupes.",
-                    "Blindage: ",
-                    "Armement: ",
+                    "Prix: 3000 crédits.",
                     "Capacité: "
                 ]
             },
             {
-                name: "REPUSLOR",
-                image: "img/repulsor.png",
+                name: "LAND RAIDER PHOBOS",
+                image: "img/land_raider2.png",
                 specs: [
-                    "Classe: Char de Combat Flottant, Transport Blindé.",
-                    "Rôle tactique: Transport Blindé, soutien offensif, mobilité stratégique, contrôle d’objectif.",
-                    "Blindage: ",
-                    "Armement: ",
+                    "Classe: Char d'Assaut / Transport Lourd",
+                    "Rôle tactique: Percée de lignes, transport de troupes.",
+                    "Prix: 3000 crédits.",
                     "Capacité: "
                 ]
             },
@@ -58,8 +78,7 @@ class DataModel {
                 specs: [
                     "Classe: Aéronef Leger de Combat, Appui Aérien",
                     "Rôle tactique: Intercepteur aérien et appui-feu au sol, escorte de troupes, attaques éclairs contre l’infanterie et les véhicules légers.",
-                    "Blindage: ",
-                    "Armement: ",
+                    "Prix: 1000 crédits.",
                     "Capacité: "
                 ]
             },
@@ -69,8 +88,7 @@ class DataModel {
                 specs: [
                     "Classe: Aéronef Lourd de Transport et de Combat",
                     "Rôle tactique: Transport de troupes lourd, soutien aérien, assaut rapide, insertion de forces d'élite, appui-feu contre les cibles fortifiées.",
-                    "Blindage: ",
-                    "Armement: ",
+                    "Prix: 1500 crédits.",
                     "Capacité: "
                 ]
             },
@@ -80,8 +98,7 @@ class DataModel {
                 specs: [
                     "Classe: Transport Aérien / Gunship",
                     "Rôle tactique: Appui aérien, transport de troupes lourd.",
-                    "Blindage: ",
-                    "Armement: ",
+                    "Prix: 4000 crédits.",
                     "Capacité: "
                 ]
             },
@@ -91,8 +108,7 @@ class DataModel {
                 specs: [
                     "Classe: Véhicule Léger de Reconnaissance",
                     "Rôle tactique: Reconnaissance, harcèlement rapide.",
-                    "Blindage: ",
-                    "Armement: ",
+                    "Prix: 700 crédits.",
                     "Capacité: "
                 ]
             },
@@ -102,9 +118,9 @@ class DataModel {
                 specs: [
                     "Classe: Véhicule Léger de Combat",
                     "Rôle tactique: Assaut motorisé, harcelment rapide.",
-                    "Blindage: ",
-                    "Armement: ",
-                    "Capacité: "
+                    "Prix: 100 crédits.",
+                    "Capacité: 1.",
+                    "Armement: Bolter Lourd Jumelé."
                 ]
             },
             {
@@ -113,9 +129,28 @@ class DataModel {
                 specs: [
                     "Classe: Marcheur Blindé de Combat, Sarcophage de Guerre",
                     "Rôle tactique: Soutien de feu lourd, percée de lignes, assaut contre les cibles fortifiées, défense de positions stratégiques.",
-                    "Blindage: ",
-                    "Armement: ",
+                    "Prix: 1000-2000 crédits.",
                     "Capacité: "
+                ]
+            },
+            {
+                name: "SICARAN",
+                image: "img/sicaran.png",
+                specs: [
+                    "Classe: Véhicule de Combat Rapide, Chasseur de Blindés",
+                    "Rôle tactique: Harcèlement rapide, destruction de blindés ennemis, reconnaissance armée.",
+                    "Prix: 5000 crédits.",
+                    "Capacité: 3."
+                ]
+            },
+            {
+                name: "FELLBLADE",
+                image: "img/fellblade.png",
+                specs: [
+                    "Classe: Char de Combat Super-Lourd, Véhicule de Siège",
+                    "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
+                    "Prix: 10000.",
+                    "Capacité: 5."
                 ]
             },
             {
@@ -124,6 +159,8 @@ class DataModel {
                 specs: [
                     "Classe: Marcheur de Combat Lourd, Chevalier de Guerre",
                     "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
+                    "Prix: /.",
+                    "Capacité: 1."
                 ]
             },
             {
@@ -132,10 +169,45 @@ class DataModel {
                 specs: [
                     "Classe: Titan de Combat Lourd, Marcheur de Guerre",
                     "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
-                    "Blindage: ",
-                    "Armement: "
+                    "Prix: /.",
+                    "Capacité: 1.",
+                    "Armement: Warhound Vulcan Mega-bolter Jumelé x2."
+                ]
+            },
+            {
+                name: "TITAN REAVER",
+                image: "img/reaver.png",
+                specs: [
+                    "Classe: Titan de Combat Lourd, Marcheur de Guerre",
+                    "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
+                    "Prix: /.",
+                    "Capacité: 1.",
+                    "Armement: Reaver Volcano Cannon, Reaver Gatling, Reaver Turbo Laser, Reaver Plasma Incinerator, Reaver Apocalypse-Missile Launcher."
+                ]
+            },
+            {
+                name: "TITAN WARLORD",
+                image: "img/warlord.png",
+                specs: [
+                    "Classe: Titan de Combat Lourd, Marcheur de Guerre",
+                    "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
+                    "Prix: /.",
+                    "Capacité: 1.",
+                    "Armement: Warlord Volcano Canon, Warlord Gatling, Warlord Turbo Laser, Warlord Plasma Incinerator, Warlord Apocalypse-Missile Launcher."
+                ]
+            },
+            {
+                name: "TITAN IMPERATOR",
+                image: "img/imperator.png",
+                specs: [
+                    "Classe: Dieu-Machine, Titan de Combat Lourd, Marcheur de Guerre",
+                    "Rôle tactique: Domination du champ de bataille, destruction de cibles stratégiques, soutien de feu massif, intimidation ennemie.",
+                    "Prix: /.",
+                    "Capacité: 1.",
+                    "Armement: Imperator Volcano Canon, Imperator Gatling, Imperator Turbo Laser, Imperator Plasma Incinerator, Imperator Apocalypse-Missile Launcher."
                 ]
             }
+
             
         ];
 
@@ -144,484 +216,6 @@ class DataModel {
             "leandres": "accessgranted",
             "magos": "retributors7"
         };
-
-        // --- GESTION ARMES ---
-        this.currentWeaponIndex = 0;
-        this.weapons = [
-            // Bolters classiques
-            {
-                name: "BOLTER MK2",
-                image: "img/bolter_mk2.png",
-                specs: [
-                    "Type: Arme standard",
-                    "Utilisateur: Space Marines",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Polyvalence en combat."
-                ]
-            },
-            {
-                name: "BOLTER LOURD MK2",
-                image: "img/bolter_lourd_mk2.png",
-                specs: [
-                    "Type: Arme Lourde",
-                    "Utilisateur: Devastator",
-                    "Munition: Bolter",
-                    "Cadence de tir: Élevée",
-                    "Rôle: Suppression d'infanterie."
-                ]
-            },
-            {
-                name: "BOLTER SNIPER MK2",
-                image: "img/bolter_sniper_mk2.png",
-                specs: [
-                    "Type: Arme de précision",
-                    "Utilisateur: Eliminator",
-                    "Munition: Bolter",
-                    "Cadence de tir: Faible",
-                    "Rôle: Élimination de cibles prioritaires."
-                ]
-            },
-
-            // Carabines Bolter
-            {
-                name: "CARABINE BOLTER STANDARD MK2",
-                image: "img/carabine_bolter_standard.png",
-                specs: [
-                    "Type: Arme légère",
-                    "Utilisateur: Space Marines",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Combat mobile."
-                ]
-            },
-            {
-                name: "CARABINE BOLTER MARKSMAN MK2",
-                image: "img/carabine_bolter_marksman.png",
-                specs: [
-                    "Type: Arme de précision",
-                    "Utilisateur: Space Marines",
-                    "Munition: Bolter",
-                    "Cadence de tir: Faible",
-                    "Rôle: Tir à moyenne portée."
-                ]
-            },
-            {
-                name: "CARABINE BOLTER OCULUS MK2",
-                image: "img/carabine_bolter_oculus.png",
-                specs: [
-                    "Type: Arme tactique",
-                    "Utilisateur: Space Marines",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Détection et neutralisation."
-                ]
-            },
-            {
-                name: "CARABINE BOLTER INFILTRATOR MK2",
-                image: "img/carabine_bolter_infiltrator.png",
-                specs: [
-                    "Type: Arme furtive",
-                    "Utilisateur: Infiltrator",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Engagement discret."
-                ]
-            },
-
-            // Néo-Bolter
-            {
-                name: "FUSIL NEO-BOLTER",
-                image: "img/neo_bolter.png",
-                specs: [
-                    "Type: Arme standard",
-                    "Utilisateur: Neophyte",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Formation et soutien."
-                ]
-            },
-            {
-                name: "FUSIL NEO-SHOTGUN",
-                image: "img/neo_shotgun.png",
-                specs: [
-                    "Type: Arme de tir à courte portée",
-                    "Utilisateur: Neophyte",
-                    "Munition: Ballistique",
-                    "Cadence de tir: Faible",
-                    "Rôle: Combat rapproché."
-                ]
-            },
-            {
-                name: "FUSIL MELTA MK2",
-                image: "img/melta_mk2.png",
-                specs: [
-                    "Type: Arme anti-blindé",
-                    "Utilisateur: Devastator",
-                    "Munition: Melta",
-                    "Cadence de tir: Faible",
-                    "Rôle: Destruction de cibles lourdes."
-                ]
-            },
-            {
-                name: "MULTI-MELTA LOURD MK2",
-                image: "img/multi_melta.png",
-                specs: [
-                    "Type: Arme Lourde",
-                    "Utilisateur: Devastator",
-                    "Munition: Melta",
-                    "Cadence de tir: Faible",
-                    "Rôle: Anti-véhicule."
-                ]
-            },
-            {
-                name: "FUSIL NEO-MELTA",
-                image: "img/neo_melta.png",
-                specs: [
-                    "Type: Arme anti-blindé",
-                    "Utilisateur: Neophyte",
-                    "Munition: Melta",
-                    "Cadence de tir: Faible",
-                    "Rôle: Initiation au combat lourd."
-                ]
-            },
-            
-            {
-                name: "FUSIL NEO-PLASMA",
-                image: "img/neo_plasma.png",
-                specs: [
-                    "Type: Arme énergétique",
-                    "Utilisateur: Neophyte",
-                    "Munition: Plasma",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Polyvalence énergétique."
-                ]
-            },
-            {
-                name: "INCINERATEUR PLASMA LOURD MK2",
-                image: "img/plasma_lourd.png",
-                specs: [
-                    "Type: Arme Lourde",
-                    "Utilisateur: Devastator",
-                    "Munition: Plasma",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Nettoyage de zone."
-                ]
-            },
-            
-            {
-                name: "LASSNIPER MK2",
-                image: "img/las_sniper.png",
-                specs: [
-                    "Type: Arme de précision",
-                    "Utilisateur: Eliminator",
-                    "Munition: Laser",
-                    "Cadence de tir: Faible",
-                    "Rôle: Tir longue portée."
-                ]
-            },
-            {
-                name: "LONGLAS MKV",
-                image: "img/longlas.png",
-                specs: [
-                    "Type: Arme de précision",
-                    "Utilisateur: Eliminator",
-                    "Munition: Laser",
-                    "Cadence de tir: Faible",
-                    "Rôle: Sniper longue portée."
-                ]
-            },
-            {
-                name: "PISTOLET BOLTER MK2",
-                image: "img/pistolet_bolter.png",
-                specs: [
-                    "Type: Arme secondaire",
-                    "Utilisateur: Space Marines",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Combat rapproché.",
-                    "Vartiante: Avec bouclier tactique"
-                ]
-            },
-            {
-                name: "PISTOLET BOLTER LÉGER MK2",
-                image: "img/pistolet_bolter_lourd.png",
-                specs: [
-                    "Type: Arme secondaire",
-                    "Utilisateur: Space Marines",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Combat rapporché lourd."
-                ]
-            },
-            {
-                name: "PISTOLET PLASMA MK2",
-                image: "img/pistolet_plasma.png",
-                specs: [
-                    "Type: Arme secondaire",
-                    "Utilisateur: Space Marines",
-                    "Munition: Plasma",
-                    "Cadence de tir: Faible",
-                    "Rôle: Puissance concentrée."
-                ]
-            },
-            {
-                name: "PISTOLET NEO-BOLTER MK2",
-                image: "img/pistolet_neo_bolter.png",
-                specs: [
-                    "Type: Arme secondaire",
-                    "Utilisateur: Neophyte",
-                    "Munition: Bolter",
-                    "Cadence de tir: Moyenne",
-                    "Rôle: Formation rapprochée."
-                ]
-            },
-            {
-                name: "COUTEAU ASTARTES",
-                image: "img/couteau_astartes.png",
-                specs: [
-                    "Type: Arme de mêlée",
-                    "Utilisateur: Space Marines",
-                    "Rôle: Combat rapproché, utilitaire."
-                ]
-            },
-            {
-                name: "PELLE DE COMBAT",
-                image: "img/pelle_combat.png",
-                specs: [
-                    "Type: Arme de mêlée",
-                    "Utilisateur: Space Marines",
-                    "Rôle: Combat rapproché, utilitaire."
-                ]
-            },
-            {
-                name: "EPEE TRONCONNEUSE",
-                image: "img/epee_tronconneuse.png",
-                specs: [
-                    "Type: Arme de mêlée",
-                    "Utilisateur: Space Marines",
-                    "Rôle: Combat rapproché brutal.",
-                    "Variante: Avec bouclier"
-                ]
-            },
-            {
-                name: "EPEE ENERGETIQUE",
-                image: "img/epee_energetique.png",
-                specs: [
-                    "Type: Arme énergétique",
-                    "Utilisateur: Space Marines",
-                    "Rôle: Pénétration d’armure.",
-                    "Variante: Avec bouclier"
-                ]
-            },
-            {
-                name: "HACHE TRONCONNEUSE MK1",
-                image: "img/hache_tronconneuse.png",
-                specs: [
-                    "Type: Arme de mêlée",
-                    "Utilisateur: Space Marines",
-                    "Rôle: Démembrement.",
-                    "Variante: Avec bouclier"
-                ]
-            },
-            {
-                name: "HACHE ENERGETIQUE MK1",
-                image: "img/hache_energetique.png",
-                specs: [
-                    "Type: Arme énergétique",
-                    "Utilisateur: Space Marines",
-                    "Rôle: Anti-armure.",
-                    "Variante: Avec bouclier"
-                ]
-            },
-            {
-                name: "CROZIUS",
-                image: "img/crozius.png",
-                specs: [
-                    "Type: Arme sacrée",
-                    "Utilisateur: Chapelain",
-                    "Rôle: Combat et symbole d'autorité.",
-                    "Variante: Avec bouclier"
-                ]
-            },
-            {
-                name: "HALLEBARDE TECHMARINE",
-                image: "img/hallebarde_techmarine.png",
-                specs: [
-                    "Type: Arme de mêlée",
-                    "Utilisateur: Techmarine",
-                    "Rôle: Combat technique."
-                ]
-            },
-            {
-                name: "JUMP PACK ASTARTES",
-                image: "img/jump_pack.png",
-                specs: [
-                    "Type: Équipement de mobilité",
-                    "Utilisateur: Assaut",
-                    "Rôle: Déploiement rapide."
-                ]
-            },
-            {
-                name: "GRAPPIN ASTARTES",
-                image: "img/grappin.png",
-                specs: [
-                    "Type: Équipement tactique",
-                    "Utilisateur: Scout Neophyte / Eliminator",
-                    "Rôle: Mobilité verticale."
-                ]
-            },
-            {
-                name: "MODULE DE CERAMITE LEGERE",
-                image: "img/ceramite.png",
-                specs: [
-                    "Type: Module Astartes",
-                    "Utilisateur: Assaut",
-                    "Fonction: Réduction des plaques d'armures au profit d'une meilleure mobilité.",
-                ]
-            },
-            {
-                name: "MODULE DE CERAMITE RENFORCÉE",
-                image: "img/ceramite.png",
-                specs: [
-                    "Type: Module Astartes",
-                    "Utilisateur: Devastator",
-                    "Fonction: Renforcement des plaques d'armures au détriment de la mobilité.",
-                ]
-            },
-            {
-                name: "MODULE DE DROGUE STAMINA",
-                image: "img/stamina.png",
-                specs: [
-                    "Type: Module Astartes",
-                    "Utilisateur: Space Marines",
-                    "Fonction: Augmente la vitesse et diminue la fatigue au détriment de l'intégrité organique."
-                ]
-            },
-            {
-                name: "MODULE DE DROGUE D'ENDURANCE",
-                image: "img/endurance.png",
-                specs: [
-                    "Type: Module Astartes",
-                    "Utilisateur: Space Marines",
-                    "Fonction: Augmente la résistance au détriment de la vitesse et de la fatigue."
-                ]
-            },
-            {
-                name: "MODULE DE SCANNER TACTIQUE",
-                image: "img/scanner.png",
-                specs: [
-                    "Type: Module Astartes",
-                    "Utilisateur: Space Marines",
-                    "Fonction: Fournit une analyse en temps réel de l'environnement et des cibles, même au travers des murs."
-                ]
-            },
-            {
-                name: "MODULE DE VISION NOCTURNE",
-                image: "img/night_vision.png",
-                specs: [
-                    "Type: Module Astartes",
-                    "Utilisateur: Space Marines",
-                    "Fonction: Permet de voir dans l'obscurité totale en amplifiant les faibles sources de lumière."
-                ]
-            }
-        ];
-
-        // --- GESTION DU MATERIEL ---
-        this.currentGearIndex = 0;
-        this.gear = [
-            {
-                name: "FABRICATOR",
-                image: "img/fabricator.png",
-                specs: [
-                    "Type: Système de Fabrication",
-                    "Fonction: Assemblage de pièces, fabrication d'armes et de munition, réparation de matériel."
-                ]
-            },
-            {
-                name: "FABRICATOR LOURD",
-                image: "img/fabricator_heavy.png",
-                specs: [
-                    "Type: Système de Fabrication Lourde",
-                    "Fonction: Fabrication de véhicules, réparation de blindés, construction de fortifications."
-                ]
-            },
-            {
-                name: "TOURELLE DE DÉFENSE",
-                image: "img/turret.png", 
-                specs: [
-                    "Type: Système de Défense Stationnaire",
-                    "Armement: Fusils laser, Canons Plasma",
-                    "Rôle: Défense de périmètre, suppression d'infanterie.",
-                    "Modules : Bolter, Assaut (Heavy Stubbers), Plasma, LasCannon, Melta, Multi-Melta.",
-                    "Augmentiques: Blindage renforcé."
-                ]
-            },
-            {
-                name: "REPARATUM",
-                image: "img/reparatum.png", 
-                specs: [
-                    "Type: Système de Réparation Portatif",
-                    "Fonction: Détachement de pièces, soudure d'appoint, diagnostic rapide.",
-                    "Rôle: Maintenance d'armure et de véhicules sur le champ de bataille, construction de fortifications."
-                ]
-            },
-            {
-                name: "NARCTECIUM",
-                image: "img/nartec.png",
-                specs: [
-                    "Type: Système de Soins Portatif",
-                    "Fonction: Administration de nanites de réparation, stabilisation des blessures, traitement de la fatigue.",
-                    "Rôle: Soins d'urgence sur le champ de bataille, récupération rapide des blessés, soutien aux opérations prolongées."
-                ]
-            },
-            {
-                name: "REANIMATOR",
-                image: "img/reanimator.png",
-                specs: [
-                    "Type: Système de Réanimation Portatif",
-                    "Fonction: Administration de nanites de réanimation, stimulation cardiaque, restauration des fonctions vitales.",
-                    "Rôle: Réanimation d'urgence sur le champ de bataille, récupération des blessés critiques, soutien aux opérations prolongées."
-                ]
-            },
-            {
-                name: "SCANNER MEDICAL",
-                image: "img/medscanner.png",
-                specs: [
-                    "Type: Système de Diagnostic Médical Portatif",
-                    "Fonction: Analyse rapide de l'état de l'intégrité des organes.",
-                    "Rôle: Diagnostic rapide sur le champ de bataille, évaluation de la gravité des blessures, soutien aux décisions médicales d'urgence."
-                ]
-            },
-            {
-                name: "TABLETTE DE DONNEES",
-                image: "img/tablet.png",
-                specs: [
-                    "Type: ",
-                    "Fonction: ",
-                    "Rôle: "
-                ]
-            },
-            {
-                name: "DATAPAD TACTIQUE",
-                image: "img/tablet.png",
-                specs: [
-                    "Type: ",
-                    "Fonction: ",
-                    "Rôle: "
-                ]
-            },
-            {
-                name: "POCHE DE COMBAT",
-                image: "img/pocket.png",
-                specs: [
-                    "Type: Augmentation de Stockage Personnel",
-                    "Fonction: Compartiments de stockage supplémentaires, accès rapide à l'équipement.",
-                    "Rôle: Permet au Space Marine de transporter plus de matériel sur le champ de bataille, améliore la flexibilité tactique, facilite l'accès à l'équipement essentiel."
-                ]
-            }
-
-        ];
     }
 
 
@@ -685,7 +279,7 @@ class AppView {
                     <p>
                         Les Techmarines sont une spécialité de l’Adeptus Astartes, ils sont liés au Culte du Dieux Machine, ils sont également les gardiens des secrets technologiques et mécaniques de leur Chapitre. <br> 
                         L'importance d’un Techmarines est vitale au sein d’un Chapitre car il sont les seuls à pouvoir opérer efficacement sur les machines de leur Chapitre qu’elles soient des armes, des fabricators ou bien des véhicules. Leur rôle passe aussi par l'entretien et la maintenance de tous les appareils, présent sur les différentes bases d'opérations et sur le matériel de leurs Frères. <br>
-                        Être un Techmarines n’est pas seulement une spécialisation mais une volonté, un lourd devoirs qui se doit d'être transmis pendant une formation de 30 année standarts sur Mars, années pendant lesquelles vous serez formé sur tous les aspects de la mécanique et la technicité de l'arsenal de l’Adeptus Astartes et étrangères, après cette période de formation vous serez pleinement opérationnel pour opérer au seins de votre Chapitre. <br>
+                        Être un Techmarines n’est pas seulement une spécialisation mais une volonté, un lourd devoirs qui se doit d'être transmis pendant une formation de 30 année standarts sur &lt;&lt;Mars&gt;&gt;; <strong>[SUITE A L'ISOLEMENT DU SOUS-SYSTEME GORANDHAL, LE PELERINAGE S'EFFECTUE SUR CALTHOROS QUATRO]</strong> , années pendant lesquelles vous serez formé sur tous les aspects de la mécanique et la technicité de l'arsenal de l’Adeptus Astartes et étrangères, après cette période de formation vous serez pleinement opérationnel pour opérer au seins de votre Chapitre. <br>
                         Votre rôle est aussi de connaître l'équipement utilisé au sein de votre Chapitre pour pouvoir les déployées avec un maximum d’efficacité, notamment en conseillant les Officiers. Il est également possible d'être rattaché aux escouade de commandements lors de mission pour pouvoir partager vos connaissance stratégique et votre savoir de la machine afin d’assister au mieux votre Chapitre et vos Frères durants les missions 
 
                     </p>
@@ -854,18 +448,17 @@ class AppView {
                     </ul>
                     <br>
                     <p>
-                        En plus des différents Protocoles d'Organisations présent ci-dessus, le Maître des Forges viendra organiser une fois toutes les deux semaines standarts une réunion de tous les Techmarines du Chapitre afin de faire le point sur les différentes opérations en cours, les différentes découvertes et les différents problèmes rencontrés. C'est également lors de ces réunions que le Maître des Forges viendra définir les priorités de chaque Techmarine pour les deux semaines à venir.
-                        C'est lors de cette réunion bihebdomaire que les Techmarines pourront également faire part de leurs découvertes, de leurs problèmes et de leurs idées pour améliorer le fonctionnement du Chapitre.<br><br>
-                        Après les différents rapports de chaque Techmarine, qui auront tous une occasion de s'exprimer, le Maître des Forges viendra désigner personnellement les deux prochains Techmarines qui auront l'honneur de recevoir les rôles d'Opérateur Logistique et d'Opérateur de Production pour la prochaine période. Voici un détail de leurs rôles respectifs : <br>
-                        <ul>
-                            <li><strong>Opérateur Logistique</strong> : Responsable de la gestion des ressources, de la coordination des approvisionnements et de la supervision des opérations logistiques. Il doit assurer la disponibilité des matériaux nécessaires pour les réparations et les maintenances, il doit également s'assurer que les différents inventaires dans les Compagnies soient effectués. Il est le principal garrant du Registre Logistique du Chapitre (Voir \'Accès Logistiques\').</li>
-                            <li><strong>Opérateur de Production</strong> : Responsable de la supervision de la production et de l'entretien des équipements. Il doit s'assurer que les réparations sont effectuées selon les standards du Chapitre, que les nouvelles constructions respectent les spécifications techniques, et que les reliques sont préservées avec le plus grand soin. Il viens de ça responsabilité que chaque commande effectué aux Forges soit honorée dans les temps.</li>
-                        </ul>
-                        <br>
-                        Ces deux rôles sont des acteurs clés dans le fonctionnement du Chapitre, ils sont les principaux relais entre le Maître des Forges et les autres Techmarines, ils sont chargés de répartir leurs confrères dans les tâches qu'ils ont a effectué (gestion logistique ou gestion de la production) et de faire remonter les informations au Maître des Forges. <br><br>                        
-                        Il est également important de rapeller que les Techmarines sont des membres à part entière de leur Compagnie, et que, même si leur rôle est avant tout technique, ils doivent également être capable de se battre aux côtés de leurs Frères d'Armes. C'est pourquoi, lors de ces réunions, le Maître des Forges viendra également organiser des exercices de combat pour permettre aux Techmarines de maintenir leurs compétences martiales à jour.
-                                            
+                        En plus des différents Protocoles d'Organisations présent ci-dessus, le Maître des Forges viendra organiser une fois toutes les deux cycles standarts une réunion de tous les Techmarines du Chapitre afin de faire le point sur les différentes opérations en cours, les différentes découvertes et les différents problèmes rencontrés. C'est également lors de ces réunions que le Maître des Forges viendra définir les priorités de chaque Techmarine pour les deux cycles à venir.
+                        C'est lors de cette réunion bihebdomaire que les Techmarines pourront également faire part de leurs découvertes, de leurs problèmes et de leurs idées pour améliorer le fonctionnement du Chapitre.<br><br>               
                     </p>
+
+                    <h2>> ROLES SPECIFIQUES DES TECHMARINES</h2>
+                    <p>Il existe dans les Forges trois rôles spécifiques pour les Techmarines, chacun ayant des responsabilités et des compétences particulières :</p>
+                    <ul>
+                        <li><strong>Révérend :</strong> Le Techmarine Révérend est un expert en rituels et en prières. Il est responsable de la conduite des rites sacrés, de l'Onction des Machines et de la supervision des Litanies de Réparation. Il veille à ce que les interventions techniques soient accompagnées des prières appropriées pour apaiser l'Esprit-Machine.</li>
+                        <li><strong>Maître de l'Arsenal :</strong> Le Techmarine Maître de l'Arsenal est un spécialiste des véhicules. Il est chargé de la maintenance, de la réparation et de l'amélioration des véhicules du Chapitre. Il supervise également la gestion des stocks des blindés et veille à ce que les Techmarines et le Chapitre disposent des équipements nécessaires pour leurs missions.</li>
+                        <li><strong>Maître Logisticar :</strong> Le Techmarine Maître Logisticar est responsable de la gestion des ressources et de la logistique. Il coordonne les approvisionnements, supervise les stocks de matériel et assure la sécurité des Forges et du Coffre-Fort. Il veille à ce que les Techmarines disposent des ressources nécessaires pour accomplir leurs missions et maintient l'ordre dans les opérations logistiques.</li>
+
                     `;
                 break;
 
